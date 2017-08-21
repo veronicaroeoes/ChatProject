@@ -11,5 +11,6 @@ namespace ClassLibrary
         // prop command
         // prop användarid
         // prop mottagarid (om privat meddelande) 
+
     }
 }
