@@ -7,13 +7,13 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using ClassLibrary;
 
 namespace Networking_server
 {
     class Program
     {
-
-
         static void Main(string[] args)
         {
             Server myServer = new Server();
@@ -25,6 +25,7 @@ namespace Networking_server
         public class Server
         {
             List<ClientHandler> clients = new List<ClientHandler>();
+
             public void Run()
             {
                 TcpListener listener = new TcpListener(IPAddress.Any, 5000);
@@ -39,6 +40,7 @@ namespace Networking_server
                         TcpClient c = listener.AcceptTcpClient();
                         ClientHandler newClient = new ClientHandler(c, this);
                         clients.Add(newClient);
+                        Console.WriteLine("New connection");
 
                         Thread clientThread = new Thread(newClient.Run);
                         clientThread.Start();
@@ -55,7 +57,7 @@ namespace Networking_server
                 }
             }
 
-            public void Broadcast(ClientHandler client, string message)
+            public void Broadcast(ClientHandler client, string jsonmessage)
             {
                 foreach (ClientHandler tmpClient in clients)
                 {
@@ -63,7 +65,12 @@ namespace Networking_server
                     {
                         NetworkStream n = tmpClient.tcpclient.GetStream();
                         BinaryWriter w = new BinaryWriter(n);
-                        w.Write(message);
+
+                        //Ta in jsonobjektet och deserialisera det!
+                        //var deserialised = JsonConvert.DeserializeObject(jsonmessage);
+                        //deserialised.
+
+                        w.Write(jsonmessage);
                         w.Flush();
                     }
                     else if (clients.Count() == 1)
