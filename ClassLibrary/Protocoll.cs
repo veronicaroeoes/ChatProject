@@ -10,7 +10,9 @@ namespace ClassLibrary
     {
         ListUsers,
         Message,
-        PrivateMessage
+        PrivateMessage,
+        UserName,
+        ErrorMessage
     }
     public class Protocoll
     {
