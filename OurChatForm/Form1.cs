@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassLibrary;
+using Newtonsoft.Json;
 
 namespace OurChatForm
 {
@@ -17,6 +19,7 @@ namespace OurChatForm
         public Form1()
         {
             InitializeComponent();
+            listBoxUsers.Items.Add("Veronica");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -33,7 +36,7 @@ namespace OurChatForm
         {
             MyClient = new Client(textBoxUserName.Text, textboxIpadress.Text, this);
             MyClient.Start();
-            MyClient.Listen();
+            //MyClient.Listen();
 
         }
 
@@ -44,8 +47,18 @@ namespace OurChatForm
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
+            string receiver = listBoxUsers.Items[listBoxUsers.SelectedIndex].ToString();
+
             string myMessage = textBoxMessage.Text;
-            MyClient.Send(myMessage);
+
+            ClassLibrary.Protocoll myProtocoll = new Protocoll();
+            myProtocoll.MessageType = ProtocolType.PrivateMessage;
+            myProtocoll.Receiver = receiver;
+            myProtocoll.Content = myMessage;
+
+            string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
+
+            MyClient.Send(jsonmessage); 
         }
     }
 }

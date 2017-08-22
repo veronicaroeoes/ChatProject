@@ -41,7 +41,7 @@ namespace OurChatForm
 
             //senderThread.Join();
 
-            listenerThread.Join();
+            //listenerThread.Join();
         }
 
         public void Listen()
