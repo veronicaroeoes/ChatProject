@@ -54,8 +54,23 @@ namespace Networking_server
                         }
                     }
 
-                    myServer.Broadcast(this, message);
-                    Console.WriteLine(message);
+                    //myServer.Broadcast(this, message);
+                    //Console.WriteLine(message);
+                }
+
+                message = "";
+                while (message != "quit")
+                {
+                    NetworkStream n = tcpclient.GetStream();
+                    message = new BinaryReader(n).ReadString();
+
+                    var deserialized = JsonConvert.DeserializeObject<Protocoll>(message);
+
+
+                    if (deserialized.MessageType == ClassLibrary.ProtocolType.Message)
+                    {
+                        myServer.Broadcast(this, deserialized.Content);
+                    }
                 }
 
                 myServer.DisconnectClient(this);

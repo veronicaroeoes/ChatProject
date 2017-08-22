@@ -48,6 +48,7 @@ namespace Networking_server
         internal void AddClient(ClientHandler clientHandler)
         {
             clients.Add(clientHandler);
+            
             //Todo: Skicka en ny lista till alla klienter (??) 
         }
 

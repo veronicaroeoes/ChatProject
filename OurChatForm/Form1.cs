@@ -20,6 +20,7 @@ namespace OurChatForm
         {
             InitializeComponent();
             listBoxUsers.Items.Add("Veronica");
+            CheckForIllegalCrossThreadCalls = false;
             
         }
 
@@ -31,8 +32,18 @@ namespace OurChatForm
         private void buttonCreateUser_Click(object sender, EventArgs e)
         {
             MyClient = new Client(textBoxUserName.Text, textboxIpadress.Text, this);
-            
+
             MyClient.Start();
+
+            string usertemp = textBoxUserName.Text;
+
+            ClassLibrary.Protocoll myProtocoll = new Protocoll();
+            myProtocoll.MessageType = ProtocolType.UserName;
+            myProtocoll.Sender = usertemp;
+
+            string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
+            
+            MyClient.Send(jsonmessage);
             //MyClient.Listen();
         }
 
@@ -55,7 +66,7 @@ namespace OurChatForm
             string myMessage = textBoxMessage.Text;
 
             ClassLibrary.Protocoll myProtocoll = new Protocoll();
-            myProtocoll.MessageType = ProtocolType.PrivateMessage;
+            myProtocoll.MessageType = ProtocolType.Message;
             myProtocoll.Receiver = receiver;
             myProtocoll.Content = myMessage;
 
