@@ -21,7 +21,6 @@ namespace OurChatForm
             InitializeComponent();
             listBoxUsers.Items.Add("Veronica");
             CheckForIllegalCrossThreadCalls = false;
-            
         }
 
         private void textBoxMessage_TextChanged(object sender, EventArgs e)
@@ -52,10 +51,12 @@ namespace OurChatForm
             List<Client> users = new List<Client>();
             //todo: List of Clients ska innehålla clients från servern
 
-            foreach (var user in users)
-            {
-                listBoxUsers.Items.Add(user);
-            }
+            //Networking_server.Server - List<ClientHandler> clients
+
+            //foreach (var user in clients)
+            //{
+            //    listBoxUsers.Items.Add(user);
+            //}
 
         }
 
@@ -73,6 +74,8 @@ namespace OurChatForm
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
 
             MyClient.Send(jsonmessage);
+
+            textBoxMessage.Text = "";
         }
     }
 }

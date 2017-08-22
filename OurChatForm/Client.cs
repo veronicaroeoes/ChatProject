@@ -7,6 +7,8 @@ using System.Threading;
 using System.Net.Sockets;
 using System.IO;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using ClassLibrary;
 
 namespace OurChatForm
 {
@@ -57,6 +59,17 @@ namespace OurChatForm
 
                     Form.listBoxChat.Items.Add(message);
 
+                    var deserialized = JsonConvert.DeserializeObject<Protocoll>(message);
+
+                    if (deserialized.MessageType == ClassLibrary.ProtocolType.ListUsers)
+                    {
+                        string[] Users = deserialized.Content.Split(';');
+                        Form.listBoxUsers.Items.Clear();
+                        foreach (var user in Users)
+                        {
+                            Form.listBoxUsers.Items.Add(user);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -91,5 +104,4 @@ namespace OurChatForm
             }
         }
     }
-
 }

@@ -7,6 +7,9 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using ClassLibrary;
+using Newtonsoft.Json;
 
 namespace Networking_server
 {
@@ -48,8 +51,22 @@ namespace Networking_server
         internal void AddClient(ClientHandler clientHandler)
         {
             clients.Add(clientHandler);
-            
-            //Todo: Skicka en ny lista till alla klienter (??) 
+
+            string tmp = "";
+
+            foreach (ClientHandler client in clients)
+            {
+                tmp += client.UserName + ";";
+            }
+
+            Protocoll listOfUsers = new Protocoll();
+            listOfUsers.MessageType = ClassLibrary.ProtocolType.ListUsers;
+            listOfUsers.Content = tmp;
+
+            string jsonmessage = JsonConvert.SerializeObject(listOfUsers);
+
+            Broadcast(clientHandler, jsonmessage);
+
         }
 
         internal bool UserNameOk(string sender)
