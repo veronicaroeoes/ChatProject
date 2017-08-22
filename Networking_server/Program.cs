@@ -23,6 +23,7 @@ namespace Networking_server
         public class Server
         {
             List<ClientHandler> clients = new List<ClientHandler>();
+
             public void Run()
             {
                 TcpListener listener = new TcpListener(IPAddress.Any, 5000);
@@ -37,6 +38,7 @@ namespace Networking_server
                         TcpClient c = listener.AcceptTcpClient();
                         ClientHandler newClient = new ClientHandler(c, this);
                         clients.Add(newClient);
+                        Console.WriteLine("New connection");
 
                         Thread clientThread = new Thread(newClient.Run);
                         clientThread.Start();

@@ -39,7 +39,13 @@ namespace OurChatForm
 
         private void listBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
 
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            string myMessage = textBoxMessage.Text;
+            MyClient.Send(myMessage);
         }
     }
 }
