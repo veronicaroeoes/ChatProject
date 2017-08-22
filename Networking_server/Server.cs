@@ -66,7 +66,7 @@ namespace Networking_server
 
             string jsonmessage = JsonConvert.SerializeObject(listOfUsers);
 
-            Broadcast(clientHandler, jsonmessage);
+            Broadcast(clientHandler, jsonmessage, clientHandler.UserName);
 
         }
 
