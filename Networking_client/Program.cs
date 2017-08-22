@@ -29,8 +29,8 @@ namespace Networking_client
             {
                 //client = new TcpClient("192.168.25.126", 5000);
                 //client = new TcpClient("192.168.25.126", 5000);
-                //client = new TcpClient("192.168.25.116", 5000); //Veronica
-                client = new TcpClient("192.168.25.126", 5000); //Niklas L
+                client = new TcpClient("192.168.25.116", 5000); //Veronica är server
+                //client = new TcpClient("192.168.25.126", 5000); //Niklas L
 
                 Thread listenerThread = new Thread(Send);
                 listenerThread.Start();
