@@ -30,7 +30,7 @@
         {
             this.labelUserName = new System.Windows.Forms.Label();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textboxIpadress = new System.Windows.Forms.TextBox();
             this.labelIPAddress = new System.Windows.Forms.Label();
             this.listBoxChat = new System.Windows.Forms.ListBox();
             this.buttonSend = new System.Windows.Forms.Button();
@@ -56,12 +56,12 @@
             this.textBoxUserName.Size = new System.Drawing.Size(133, 22);
             this.textBoxUserName.TabIndex = 1;
             // 
-            // textBox1
+            // textboxIpadress
             // 
-            this.textBox1.Location = new System.Drawing.Point(33, 108);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(133, 22);
-            this.textBox1.TabIndex = 3;
+            this.textboxIpadress.Location = new System.Drawing.Point(33, 108);
+            this.textboxIpadress.Name = "textboxIpadress";
+            this.textboxIpadress.Size = new System.Drawing.Size(133, 22);
+            this.textboxIpadress.TabIndex = 3;
             // 
             // labelIPAddress
             // 
@@ -106,6 +106,7 @@
             this.listBoxUsers.Name = "listBoxUsers";
             this.listBoxUsers.Size = new System.Drawing.Size(133, 164);
             this.listBoxUsers.TabIndex = 7;
+            this.listBoxUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxUsers_SelectedIndexChanged);
             // 
             // labelFriendsOnline
             // 
@@ -125,6 +126,7 @@
             this.buttonCreateUser.TabIndex = 9;
             this.buttonCreateUser.Text = "Go!";
             this.buttonCreateUser.UseVisualStyleBackColor = true;
+            this.buttonCreateUser.Click += new System.EventHandler(this.buttonCreateUser_Click);
             // 
             // Form1
             // 
@@ -137,7 +139,7 @@
             this.Controls.Add(this.textBoxMessage);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.listBoxChat);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textboxIpadress);
             this.Controls.Add(this.labelIPAddress);
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.labelUserName);
@@ -152,12 +154,12 @@
 
         private System.Windows.Forms.Label labelUserName;
         private System.Windows.Forms.TextBox textBoxUserName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textboxIpadress;
         private System.Windows.Forms.Label labelIPAddress;
-        private System.Windows.Forms.ListBox listBoxChat;
+        public System.Windows.Forms.ListBox listBoxChat;
         private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.TextBox textBoxMessage;
-        private System.Windows.Forms.ListBox listBoxUsers;
+        public System.Windows.Forms.ListBox listBoxUsers;
         private System.Windows.Forms.Label labelFriendsOnline;
         private System.Windows.Forms.Button buttonCreateUser;
     }
