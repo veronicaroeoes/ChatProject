@@ -29,6 +29,7 @@ namespace Networking_server
                     ClientHandler newClient = new ClientHandler(c, this, "test");
                     //clients.Add(newClient);
                     Console.WriteLine("New connection");
+                    
 
                     Thread clientThread = new Thread(newClient.Run);
                     clientThread.Start();
@@ -57,7 +58,7 @@ namespace Networking_server
             return clients.FindAll(x => x.UserName == sender).Count == 0;
         }
 
-        public void Broadcast(ClientHandler client, string jsonmessage)
+        public void Broadcast(ClientHandler client, string jsonmessage, string user)
         {
             foreach (ClientHandler tmpClient in clients)
             {
@@ -65,7 +66,7 @@ namespace Networking_server
                 NetworkStream n = tmpClient.tcpclient.GetStream();
                 BinaryWriter w = new BinaryWriter(n);
 
-                w.Write(jsonmessage);
+                w.Write($"{user}: {jsonmessage}");
                 w.Flush();
 
 
@@ -76,7 +77,7 @@ namespace Networking_server
         {
             clients.Remove(client);
             Console.WriteLine("Client X has left the building...");
-            Broadcast(client, "Client X has left the building...");
+            Broadcast(client, "Client X has left the building...", client.UserName);
         }
     }
 }

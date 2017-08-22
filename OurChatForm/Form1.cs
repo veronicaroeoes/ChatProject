@@ -69,6 +69,7 @@ namespace OurChatForm
             myProtocoll.MessageType = ProtocolType.Message;
             myProtocoll.Receiver = receiver;
             myProtocoll.Content = myMessage;
+            myProtocoll.Sender = textBoxUserName.Text;
 
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
 
