@@ -19,7 +19,7 @@ namespace OurChatForm
         public Form1()
         {
             InitializeComponent();
-            listBoxUsers.Items.Add("Veronica");
+            listBoxUsers.Items.Add("Public");
             CheckForIllegalCrossThreadCalls = false;
             
         }
