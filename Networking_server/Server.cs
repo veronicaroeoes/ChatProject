@@ -53,20 +53,21 @@ namespace Networking_server
         {
             clients.Add(clientHandler);
 
-            string tmp = "";
+            string tmp = "Public";
 
             foreach (ClientHandler client in clients)
             {
-                tmp += client.UserName + ";";
+                tmp += ";" + client.UserName;
             }
 
             Protocoll listOfUsers = new Protocoll();
             listOfUsers.MessageType = ClassLibrary.ProtocolType.ListUsers;
             listOfUsers.Content = tmp;
+            listOfUsers.Sender = clientHandler.UserName;
 
             string jsonmessage = JsonConvert.SerializeObject(listOfUsers);
 
-            Broadcast(clientHandler, jsonmessage);
+            Broadcast(clientHandler, jsonmessage, clientHandler.UserName);
 
         }
 
@@ -83,7 +84,7 @@ namespace Networking_server
                 NetworkStream n = tmpClient.tcpclient.GetStream();
                 BinaryWriter w = new BinaryWriter(n);
 
-                w.Write($"{user}: {jsonmessage}");
+                w.Write(jsonmessage);
                 w.Flush();
 
 

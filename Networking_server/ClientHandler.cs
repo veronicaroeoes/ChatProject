@@ -40,10 +40,11 @@ namespace Networking_server
                     {
                         if (myServer.UserNameOk(deserialized.Sender))
                         {
+                            this.UserName = deserialized.Sender;
                             myServer.AddClient(this);
                             //Todo: Skriv till chattboxen att någon kom med
                             //Todo: uppdatera listboxen?? varje gång något händer
-                            UserName = deserialized.Sender;
+                           
                             break;
                         }
                         else
