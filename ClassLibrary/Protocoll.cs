@@ -21,11 +21,5 @@ namespace ClassLibrary
         public string Version { get; set; } = "1.0";
         public string Sender { get; set; }
         public string Receiver { get; set; }
-
-
-        // prop command
-        // prop användarid
-        // prop mottagarid (om privat meddelande) 
-
     }
 }

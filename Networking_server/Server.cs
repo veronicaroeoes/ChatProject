@@ -86,8 +86,6 @@ namespace Networking_server
 
                 w.Write(jsonmessage);
                 w.Flush();
-
-
             }
         }
 
