@@ -23,6 +23,7 @@ namespace Networking_server
         public class Server
         {
             List<ClientHandler> clients = new List<ClientHandler>();
+
             public void Run()
             {
                 TcpListener listener = new TcpListener(IPAddress.Any, 5000);
