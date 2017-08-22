@@ -37,6 +37,7 @@ namespace Networking_server
                         TcpClient c = listener.AcceptTcpClient();
                         ClientHandler newClient = new ClientHandler(c, this);
                         clients.Add(newClient);
+                        Console.WriteLine("New connection");
 
                         Thread clientThread = new Thread(newClient.Run);
                         clientThread.Start();

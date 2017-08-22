@@ -116,7 +116,6 @@
             this.labelFriendsOnline.Size = new System.Drawing.Size(85, 17);
             this.labelFriendsOnline.TabIndex = 8;
             this.labelFriendsOnline.Text = "Your friends";
-            this.labelFriendsOnline.Click += new System.EventHandler(this.label1_Click);
             // 
             // buttonCreateUser
             // 

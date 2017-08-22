@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace OurChatForm
 {
-
     public class Client
     {
         private TcpClient client;
@@ -29,9 +28,9 @@ namespace OurChatForm
         {
             //client = new TcpClient("192.168.25.126", 5000);
             //client = new TcpClient("192.168.25.126", 5000);
-            client = new TcpClient(IPAddress, 5000); //Veronica
-                                                            //client = new TcpClient("192.168.25.126", 5000); //Niklas L
-                                                            //todo: Gör startsida där användaren får fylla i ip-adress att koppla upp mot
+            client = new TcpClient(IPAddress, 5000);
+            //client = new TcpClient("192.168.25.116", 5000);Veronica
+            //client = new TcpClient("192.168.25.126", 5000); //Niklas L
 
             Thread listenerThread = new Thread(Listen);
             listenerThread.Start();
@@ -54,9 +53,9 @@ namespace OurChatForm
                 {
                     NetworkStream n = client.GetStream();
                     message = new BinaryReader(n).ReadString();
-                //Console.WriteLine("Other: " + message);
+                    //Console.WriteLine("Other: " + message);
 
-                Form.listBoxChat.Items.Add(message);
+                    Form.listBoxChat.Items.Add(message);
 
                 }
             }
@@ -75,13 +74,13 @@ namespace OurChatForm
             {
                 //while (!message.Equals("quit"))
                 //{
-                    NetworkStream n = client.GetStream();
+                NetworkStream n = client.GetStream();
 
-                    //message = Console.ReadLine();
+                //message = Console.ReadLine();
 
-                    BinaryWriter w = new BinaryWriter(n);
-                    w.Write(message);
-                    w.Flush();
+                BinaryWriter w = new BinaryWriter(n);
+                w.Write(message);
+                w.Flush();
                 //}
 
                 //client.Close();
