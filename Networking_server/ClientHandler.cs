@@ -41,6 +41,8 @@ namespace Networking_server
                         if (myServer.UserNameOk(deserialized.Sender))
                         {
                             myServer.AddClient(this);
+                            //Todo: Skriv till chattboxen att någon kom med
+                            //Todo: uppdatera listboxen?? varje gång något händer
                             UserName = deserialized.Sender;
                             break;
                         }
@@ -50,11 +52,11 @@ namespace Networking_server
                             errorProtocoll.MessageType = ClassLibrary.ProtocolType.ErrorMessage;
                             errorProtocoll.Content = "Username is already taken.";
 
-                            Send(JsonConvert.SerializeObject(errorProtocoll));
+                            Send(JsonConvert.SerializeObject(errorProtocoll.Content));
                         }
                     }
 
-                    //myServer.Broadcast(this, message);
+                    myServer.Broadcast(this, message, UserName);
                     //Console.WriteLine(message);
                 }
 
@@ -69,7 +71,7 @@ namespace Networking_server
 
                     if (deserialized.MessageType == ClassLibrary.ProtocolType.Message)
                     {
-                        myServer.Broadcast(this, deserialized.Content);
+                        myServer.Broadcast(this, deserialized.Content, deserialized.Sender);
                     }
                 }
 

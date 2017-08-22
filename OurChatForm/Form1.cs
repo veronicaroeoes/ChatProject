@@ -19,7 +19,7 @@ namespace OurChatForm
         public Form1()
         {
             InitializeComponent();
-            listBoxUsers.Items.Add("Veronica");
+            listBoxUsers.Items.Add("Public");
             CheckForIllegalCrossThreadCalls = false;
         }
 
@@ -70,6 +70,7 @@ namespace OurChatForm
             myProtocoll.MessageType = ProtocolType.Message;
             myProtocoll.Receiver = receiver;
             myProtocoll.Content = myMessage;
+            myProtocoll.Sender = textBoxUserName.Text;
 
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
 
