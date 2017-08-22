@@ -20,6 +20,7 @@ namespace OurChatForm
         {
             InitializeComponent();
             listBoxUsers.Items.Add("Veronica");
+            
         }
 
         private void textBoxMessage_TextChanged(object sender, EventArgs e)
@@ -30,14 +31,21 @@ namespace OurChatForm
         private void buttonCreateUser_Click(object sender, EventArgs e)
         {
             MyClient = new Client(textBoxUserName.Text, textboxIpadress.Text, this);
+            
             MyClient.Start();
             //MyClient.Listen();
-
         }
 
         private void listBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            List<Client> users = new List<Client>();
+            //todo: List of Clients ska innehålla clients från servern
+
+            foreach (var user in users)
+            {
+                listBoxUsers.Items.Add(user);
+            }
+
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
@@ -53,7 +61,7 @@ namespace OurChatForm
 
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
 
-            MyClient.Send(jsonmessage); 
+            MyClient.Send(jsonmessage);
         }
     }
 }

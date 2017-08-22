@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OurChatForm;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace Networking_server
                     while (true)
                     {
                         TcpClient c = listener.AcceptTcpClient();
-                        ClientHandler newClient = new ClientHandler(c, this);
+                        ClientHandler newClient = new ClientHandler(c, this, "test");
                         clients.Add(newClient);
                         Console.WriteLine("New connection");
 
@@ -86,12 +87,15 @@ namespace Networking_server
 
         public class ClientHandler
         {
+            public string UserName;
             public TcpClient tcpclient;
             private Server myServer;
-            public ClientHandler(TcpClient c, Server server)
+
+            public ClientHandler(TcpClient c, Server server, string username)
             {
                 tcpclient = c;
                 this.myServer = server;
+                UserName = username; 
             }
 
             public void Run()
