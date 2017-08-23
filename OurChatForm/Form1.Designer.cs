@@ -132,6 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(177)))), ((int)(((byte)(75)))));
             this.ClientSize = new System.Drawing.Size(1034, 506);
             this.Controls.Add(this.buttonCreateUser);
             this.Controls.Add(this.labelFriendsOnline);
@@ -144,7 +145,7 @@
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.labelUserName);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Chatify";
             this.ResumeLayout(false);
             this.PerformLayout();
 
