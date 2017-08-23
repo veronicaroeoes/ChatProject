@@ -102,5 +102,11 @@
   <ItemGroup>
     <None Include="Resources\Chattify-logo-vit1.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chattify-logo-vit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chattify-logo-vit1.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

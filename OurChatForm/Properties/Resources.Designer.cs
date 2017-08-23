@@ -83,6 +83,26 @@ namespace OurChatForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Chattify_logo_vit2 {
+            get {
+                object obj = ResourceManager.GetObject("Chattify-logo-vit2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Chattify_logo_vit3 {
+            get {
+                object obj = ResourceManager.GetObject("Chattify-logo-vit3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ChattifylogoVitPS {
             get {
                 object obj = ResourceManager.GetObject("ChattifylogoVitPS", resourceCulture);

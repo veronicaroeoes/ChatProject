@@ -39,8 +39,8 @@
             this.listBoxUsers = new System.Windows.Forms.ListBox();
             this.labelFriendsOnline = new System.Windows.Forms.Label();
             this.buttonCreateUser = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonDisconnectUser = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,15 +165,6 @@
             this.buttonCreateUser.UseVisualStyleBackColor = false;
             this.buttonCreateUser.Click += new System.EventHandler(this.buttonCreateUser_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::OurChatForm.Properties.Resources.Chattify_logo_vit1;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(339, 128);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
             // buttonDisconnectUser
             // 
             this.buttonDisconnectUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(110)))), ((int)(((byte)(158)))));
@@ -181,10 +172,21 @@
             this.buttonDisconnectUser.ForeColor = System.Drawing.Color.White;
             this.buttonDisconnectUser.Location = new System.Drawing.Point(868, 31);
             this.buttonDisconnectUser.Name = "buttonDisconnectUser";
-            this.buttonDisconnectUser.Size = new System.Drawing.Size(133, 26);
+            this.buttonDisconnectUser.Size = new System.Drawing.Size(133, 33);
             this.buttonDisconnectUser.TabIndex = 11;
             this.buttonDisconnectUser.Text = "Disconnect";
             this.buttonDisconnectUser.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::OurChatForm.Properties.Resources.Chattify_logo_vit3;
+            this.pictureBox1.Location = new System.Drawing.Point(37, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 79);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 
