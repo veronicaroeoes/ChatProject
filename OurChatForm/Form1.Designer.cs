@@ -44,6 +44,7 @@
             // labelUserName
             // 
             this.labelUserName.AutoSize = true;
+            this.labelUserName.ForeColor = System.Drawing.Color.White;
             this.labelUserName.Location = new System.Drawing.Point(30, 43);
             this.labelUserName.Name = "labelUserName";
             this.labelUserName.Size = new System.Drawing.Size(73, 17);
@@ -52,6 +53,7 @@
             // 
             // textBoxUserName
             // 
+            this.textBoxUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
             this.textBoxUserName.Location = new System.Drawing.Point(33, 63);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(133, 22);
@@ -59,6 +61,7 @@
             // 
             // textboxIpadress
             // 
+            this.textboxIpadress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
             this.textboxIpadress.Location = new System.Drawing.Point(33, 108);
             this.textboxIpadress.Name = "textboxIpadress";
             this.textboxIpadress.Size = new System.Drawing.Size(133, 22);
@@ -67,6 +70,7 @@
             // labelIPAddress
             // 
             this.labelIPAddress.AutoSize = true;
+            this.labelIPAddress.ForeColor = System.Drawing.Color.White;
             this.labelIPAddress.Location = new System.Drawing.Point(30, 88);
             this.labelIPAddress.Name = "labelIPAddress";
             this.labelIPAddress.Size = new System.Drawing.Size(76, 17);
@@ -87,9 +91,9 @@
             // buttonSend
             // 
             this.buttonSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(110)))), ((int)(((byte)(158)))));
-            this.buttonSend.Location = new System.Drawing.Point(33, 438);
+            this.buttonSend.Location = new System.Drawing.Point(33, 431);
             this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(133, 25);
+            this.buttonSend.Size = new System.Drawing.Size(133, 32);
             this.buttonSend.TabIndex = 5;
             this.buttonSend.Text = "Send message";
             this.buttonSend.UseVisualStyleBackColor = false;
@@ -97,27 +101,32 @@
             // 
             // textBoxMessage
             // 
-            this.textBoxMessage.Location = new System.Drawing.Point(33, 410);
+            this.textBoxMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
+            this.textBoxMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textBoxMessage.Location = new System.Drawing.Point(33, 403);
             this.textBoxMessage.Name = "textBoxMessage";
             this.textBoxMessage.Size = new System.Drawing.Size(133, 22);
             this.textBoxMessage.TabIndex = 6;
+            this.textBoxMessage.Text = "write message...";
             this.textBoxMessage.TextChanged += new System.EventHandler(this.textBoxMessage_TextChanged);
             // 
             // listBoxUsers
             // 
             this.listBoxUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
+            this.listBoxUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxUsers.FormattingEnabled = true;
             this.listBoxUsers.ItemHeight = 16;
-            this.listBoxUsers.Location = new System.Drawing.Point(33, 230);
+            this.listBoxUsers.Location = new System.Drawing.Point(33, 223);
             this.listBoxUsers.Name = "listBoxUsers";
-            this.listBoxUsers.Size = new System.Drawing.Size(133, 164);
+            this.listBoxUsers.Size = new System.Drawing.Size(133, 160);
             this.listBoxUsers.TabIndex = 7;
             this.listBoxUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxUsers_SelectedIndexChanged);
             // 
             // labelFriendsOnline
             // 
             this.labelFriendsOnline.AutoSize = true;
-            this.labelFriendsOnline.Location = new System.Drawing.Point(33, 207);
+            this.labelFriendsOnline.ForeColor = System.Drawing.Color.White;
+            this.labelFriendsOnline.Location = new System.Drawing.Point(33, 200);
             this.labelFriendsOnline.Name = "labelFriendsOnline";
             this.labelFriendsOnline.Size = new System.Drawing.Size(85, 17);
             this.labelFriendsOnline.TabIndex = 8;
@@ -126,6 +135,8 @@
             // buttonCreateUser
             // 
             this.buttonCreateUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(110)))), ((int)(((byte)(158)))));
+            this.buttonCreateUser.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.buttonCreateUser.ForeColor = System.Drawing.Color.White;
             this.buttonCreateUser.Location = new System.Drawing.Point(33, 147);
             this.buttonCreateUser.Name = "buttonCreateUser";
             this.buttonCreateUser.Size = new System.Drawing.Size(133, 31);
@@ -152,7 +163,7 @@
             this.Controls.Add(this.labelUserName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Chatify";
+            this.Text = "Chattify";
             this.ResumeLayout(false);
             this.PerformLayout();
 
