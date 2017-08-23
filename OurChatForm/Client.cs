@@ -49,9 +49,9 @@ namespace OurChatForm
         {
             string message = "";
 
-            try
+            while (true)
             {
-                while (true)
+                try
                 {
                     NetworkStream n = client.GetStream();
                     message = new BinaryReader(n).ReadString();
@@ -70,12 +70,17 @@ namespace OurChatForm
                             Form.listBoxUsers.Items.Add(user);
                         }
                     }
+                    else if (deserialized.MessageType == ClassLibrary.ProtocolType.Message)
+                    {
+                        Form.listBoxChat.Items.Add($"{deserialized.Sender}: {deserialized.Content}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+
         }
 
         //För att skicka meddelande:
