@@ -10,7 +10,8 @@ namespace ClassLibrary
     {
         UserNameTaken,
         UserNameToShort,
-        Other
+        Other,
+        NoError
     }
 
     public enum ProtocolType

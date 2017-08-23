@@ -36,54 +36,45 @@ namespace Networking_server
 
                     var deserialized = JsonConvert.DeserializeObject<Protocoll>(message);
 
-                    //Protocoll errorProtocoll = new Protocoll();
 
-                    //if (myServer.UserNameOk(deserialized.Sender) == ErrorType.UserNameTaken)
-                    //{
-                    //    errorProtocoll.MessageType = ClassLibrary.ProtocolType.ErrorMessage;
-                    //    errorProtocoll.ErrorType = ErrorType.UserNameTaken;
-                    //    errorProtocoll.Content = "Username is already taken.";
-                    //    var packed = JsonConvert.SerializeObject(errorProtocoll);
+                    ErrorType errorType = myServer.UserNameOk(deserialized.Sender);
 
-                    //    Send(packed);
-                    //}
-                    //else if (myServer.UserNameOk(deserialized.Sender) == ErrorType.UserNameToShort)
-                    //{
-
-                    //}
-                    //else
-                    //{
-                    //    this.UserName = deserialized.Sender;
-                    //    myServer.AddClient(this);
-                    //    //Todo: Skriv till chattboxen att någon kom med
-
-                    //    break;
-                    //}
-
-                    if (deserialized.MessageType == ClassLibrary.ProtocolType.UserName)
+                    if (errorType == ErrorType.NoError)
                     {
-                        if (myServer.UserNameOk(deserialized.Sender))
+                        this.UserName = deserialized.Sender;
+                        myServer.AddClient(this);
+                        //Todo: Skriv till chattboxen att någon kom med
+
+                        //myServer.Broadcast(this, message, UserName);
+
+                        break;
+
+                    }
+                    else
+                    {
+                        Protocoll errorProtocoll = new Protocoll();
+                        errorProtocoll.MessageType = ClassLibrary.ProtocolType.ErrorMessage;
+                        errorProtocoll.ErrorType = errorType;
+
+                        switch (errorType)
                         {
-                            this.UserName = deserialized.Sender;
-                            myServer.AddClient(this);
-                            //Todo: Skriv till chattboxen att någon kom med
-
-                            break;
+                            case ErrorType.UserNameTaken:
+                                errorProtocoll.Content = "Username is already taken.";
+                                break;
+                            case ErrorType.UserNameToShort:
+                                errorProtocoll.Content = "Username too short.";
+                                break;
+                            default:
+                                errorProtocoll.Content = "Try again.";
+                                break;
                         }
-                        else
-                        {
-                            Protocoll errorProtocoll = new Protocoll();
-                            errorProtocoll.MessageType = ClassLibrary.ProtocolType.ErrorMessage;
-                            errorProtocoll.Content = "Username is already taken.";
-                            var packed = JsonConvert.SerializeObject(errorProtocoll);
 
-                            Send(packed);
+                        var packed = JsonConvert.SerializeObject(errorProtocoll);
 
-                        }
+                        Send(packed);
+
                     }
 
-                    myServer.Broadcast(this, message, UserName);
-                    //Console.WriteLine(message);
                 }
 
                 message = "";

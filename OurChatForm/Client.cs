@@ -63,13 +63,43 @@ namespace OurChatForm
                     if (deserialized.MessageType == ClassLibrary.ProtocolType.ListUsers)
                     {
                         string[] Users = deserialized.Content.Split(';');
+
+                        if (Users.Length > Form.listBoxUsers.Items.Count)
+                        {
+                            // Då har en användare lagts till
+
+                            for (int i = 0; i < Users.Length; i++)
+                            {
+                                foreach (var user in Form.listBoxUsers.Items)
+                                {
+                                    //Om User[i] inte finns i form.listboxUsers.Items sedan innan
+                                    //Skriv till chatbox att usern lagts till
+                                }
+                            }
+
+                        }
+                        else if (Users.Length < Form.listBoxUsers.Items.Count)
+                        {
+                            //Då har någon gått ur
+                            foreach (var user in Form.listBoxUsers.Items)
+                            {
+                                if (!Users.Any(x => x == user.ToString()))
+                                {
+                                    Form.listBoxChat.Items.Add("User left the chat");
+                                    // Tror denna är fel... 
+                                }
+                            }
+                        }
+
                         Form.listBoxUsers.Items.Clear();
                         foreach (var user in Users)
                         {
                             Form.listBoxUsers.Items.Add(user);
+
                         }
+
                         Form.listBoxUsers.SelectedIndex = 0;
-                        
+
                     }
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.Message)
                     {
@@ -91,6 +121,7 @@ namespace OurChatForm
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                    break;
                 }
             }
 
