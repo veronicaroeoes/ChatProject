@@ -101,9 +101,14 @@ namespace Networking_server
             var result = clients
                 .FirstOrDefault(c => c.UserName == receiver);
 
-            NetworkStream n = result.tcpclient.GetStream();
-            BinaryWriter w = new BinaryWriter(n);
+            NetworkStream n1 = result.tcpclient.GetStream();
+            BinaryWriter w1 = new BinaryWriter(n1);
+            w1.Write(message);
+            w1.Flush();
 
+
+            NetworkStream n = clientHandler.tcpclient.GetStream();
+            BinaryWriter w = new BinaryWriter(n);
             w.Write(message);
             w.Flush();
 
