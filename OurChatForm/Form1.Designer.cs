@@ -176,6 +176,7 @@
             this.buttonDisconnectUser.TabIndex = 11;
             this.buttonDisconnectUser.Text = "Disconnect";
             this.buttonDisconnectUser.UseVisualStyleBackColor = false;
+            this.buttonDisconnectUser.Click += new System.EventHandler(this.buttonDisconnectUser_Click);
             // 
             // pictureBox1
             // 
@@ -209,6 +210,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Chattify";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

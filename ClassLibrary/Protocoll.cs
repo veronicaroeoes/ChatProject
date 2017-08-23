@@ -18,7 +18,8 @@ namespace ClassLibrary
         Message,
         PrivateMessage,
         UserName,
-        ErrorMessage
+        ErrorMessage,
+        DeleteClient
     }
     public class Protocoll
     {

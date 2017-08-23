@@ -97,8 +97,32 @@ namespace Networking_server
         public void DisconnectClient(ClientHandler client)
         {
             clients.Remove(client);
+            Deleteclient(client);
             Console.WriteLine("Client X has left the building...");
             Broadcast(client, "Client X has left the building...", client.UserName);
+        }
+
+        private void Deleteclient(ClientHandler client)
+        {
+            //clients.Add(clientHandler);
+            var result = clients
+                .Remove(client);
+
+            string tmp = "Public";
+
+            foreach (ClientHandler person in clients)
+            {
+                tmp += ";" + person.UserName;
+            }
+
+            Protocoll listOfUsers = new Protocoll();
+            listOfUsers.MessageType = ClassLibrary.ProtocolType.ListUsers;
+            listOfUsers.Content = tmp;
+            listOfUsers.Sender = client.UserName;
+
+            string jsonmessage = JsonConvert.SerializeObject(listOfUsers);
+
+            Broadcast(client, jsonmessage, client.UserName);
         }
 
         internal void SendPM(ClientHandler clientHandler, string message, string sender, string receiver)
