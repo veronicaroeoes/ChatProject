@@ -75,6 +75,12 @@ namespace Networking_server
                     {
                         myServer.Broadcast(this, message, deserialized.Sender);
                     }
+                    else if (deserialized.MessageType == ClassLibrary.ProtocolType.PrivateMessage)
+                    {
+                        myServer.SendPM(this, message, deserialized.Sender, deserialized.Receiver);
+                        //TODO METOD FÖR PM
+                        //myServer.Broadcast(this, )
+                    }
                 }
 
                 myServer.DisconnectClient(this);

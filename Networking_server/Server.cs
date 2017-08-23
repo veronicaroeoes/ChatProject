@@ -78,12 +78,9 @@ namespace Networking_server
 
         public void Broadcast(ClientHandler client, string jsonmessage, string user)
         {
-
-
+            
             foreach (ClientHandler tmpClient in clients)
             {
-
-
                 NetworkStream n = tmpClient.tcpclient.GetStream();
                 BinaryWriter w = new BinaryWriter(n);
 
@@ -97,6 +94,19 @@ namespace Networking_server
             clients.Remove(client);
             Console.WriteLine("Client X has left the building...");
             Broadcast(client, "Client X has left the building...", client.UserName);
+        }
+
+        internal void SendPM(ClientHandler clientHandler, string message, string sender, string receiver)
+        {
+            var result = clients
+                .FirstOrDefault(c => c.UserName == receiver);
+
+            NetworkStream n = result.tcpclient.GetStream();
+            BinaryWriter w = new BinaryWriter(n);
+
+            w.Write(message);
+            w.Flush();
+
         }
     }
 }
