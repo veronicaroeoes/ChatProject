@@ -103,5 +103,33 @@ namespace OurChatForm
         {
 
         }
+
+        private void buttonDisconnectUser_Click(object sender, EventArgs e)
+        {
+            //string receiver = listBoxUsers.Items[listBoxUsers.SelectedIndex].ToString();
+
+            //string myMessage = textBoxMessage.Text;
+
+            ClassLibrary.Protocoll myProtocoll = new Protocoll();
+            myProtocoll.MessageType = ProtocolType.DeleteClient;
+            myProtocoll.Sender = textBoxUserName.Text;
+
+            string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
+
+
+            MyClient.Send(jsonmessage);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ClassLibrary.Protocoll myProtocoll = new Protocoll();
+            myProtocoll.MessageType = ProtocolType.DeleteClient;
+            myProtocoll.Sender = textBoxUserName.Text;
+
+            string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
+
+
+            MyClient.Send(jsonmessage);
+        }
     }
 }
