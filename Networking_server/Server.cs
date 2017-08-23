@@ -73,12 +73,24 @@ namespace Networking_server
 
         internal bool UserNameOk(string sender)
         {
-            if (sender == "Public")
+            if (sender == "Public" || sender.Length < 1)
             {
                 return false;
             }
 
             return clients.FindAll(x => x.UserName == sender).Count == 0;
+
+            //if (sender == "Public" || clients.FindAll(x => x.UserName == sender).Count == 0)
+            //{
+            //    return ErrorType.UserNameTaken;
+            //}
+
+            //else if (sender.Length < 1)
+            //{
+            //    return ErrorType.UserNameToShort;
+            //}
+
+            //return ErrorType.Other;
         }
 
         public void Broadcast(ClientHandler client, string jsonmessage, string user)
