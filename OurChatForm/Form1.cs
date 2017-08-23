@@ -20,6 +20,7 @@ namespace OurChatForm
         {
             InitializeComponent();
             listBoxUsers.Items.Add("Public");
+            listBoxUsers.SelectedIndex = 0;
             CheckForIllegalCrossThreadCalls = false;
         }
 
@@ -41,7 +42,9 @@ namespace OurChatForm
             myProtocoll.Sender = usertemp;
 
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
-            
+
+
+            listBoxUsers.SelectedIndex = 0;
             MyClient.Send(jsonmessage);
 
             //sätt public till default.
@@ -68,8 +71,11 @@ namespace OurChatForm
 
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
 
+
             MyClient.Send(jsonmessage);
 
+
+            listBoxUsers.SelectedIndex = 0;
             textBoxMessage.Text = "";
         }
     }

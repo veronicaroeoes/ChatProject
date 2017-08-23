@@ -75,6 +75,8 @@
             // 
             // listBoxChat
             // 
+            this.listBoxChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
+            this.listBoxChat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listBoxChat.FormattingEnabled = true;
             this.listBoxChat.ItemHeight = 16;
             this.listBoxChat.Location = new System.Drawing.Point(192, 43);
@@ -84,12 +86,13 @@
             // 
             // buttonSend
             // 
+            this.buttonSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(110)))), ((int)(((byte)(158)))));
             this.buttonSend.Location = new System.Drawing.Point(33, 438);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(133, 25);
             this.buttonSend.TabIndex = 5;
             this.buttonSend.Text = "Send message";
-            this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.UseVisualStyleBackColor = false;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // textBoxMessage
@@ -102,6 +105,7 @@
             // 
             // listBoxUsers
             // 
+            this.listBoxUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
             this.listBoxUsers.FormattingEnabled = true;
             this.listBoxUsers.ItemHeight = 16;
             this.listBoxUsers.Location = new System.Drawing.Point(33, 230);
@@ -121,18 +125,20 @@
             // 
             // buttonCreateUser
             // 
+            this.buttonCreateUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(110)))), ((int)(((byte)(158)))));
             this.buttonCreateUser.Location = new System.Drawing.Point(33, 147);
             this.buttonCreateUser.Name = "buttonCreateUser";
             this.buttonCreateUser.Size = new System.Drawing.Size(133, 31);
             this.buttonCreateUser.TabIndex = 9;
             this.buttonCreateUser.Text = "Go!";
-            this.buttonCreateUser.UseVisualStyleBackColor = true;
+            this.buttonCreateUser.UseVisualStyleBackColor = false;
             this.buttonCreateUser.Click += new System.EventHandler(this.buttonCreateUser_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(177)))), ((int)(((byte)(75)))));
             this.ClientSize = new System.Drawing.Size(1034, 506);
             this.Controls.Add(this.buttonCreateUser);
             this.Controls.Add(this.labelFriendsOnline);
@@ -146,7 +152,7 @@
             this.Controls.Add(this.labelUserName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Chatify";
             this.ResumeLayout(false);
             this.PerformLayout();
 

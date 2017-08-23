@@ -55,9 +55,8 @@ namespace OurChatForm
                 {
                     NetworkStream n = client.GetStream();
                     message = new BinaryReader(n).ReadString();
-                    //Console.WriteLine("Other: " + message);
 
-                    Form.listBoxChat.Items.Add(message);
+                    //Form.listBoxChat.Items.Add(message);
 
                     var deserialized = JsonConvert.DeserializeObject<Protocoll>(message);
 
@@ -67,8 +66,10 @@ namespace OurChatForm
                         Form.listBoxUsers.Items.Clear();
                         foreach (var user in Users)
                         {
+                            
                             Form.listBoxUsers.Items.Add(user);
                         }
+                        Form.listBoxUsers.SelectedIndex = 0;
                     }
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.Message)
                     {
