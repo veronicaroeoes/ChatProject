@@ -55,9 +55,8 @@ namespace OurChatForm
                 {
                     NetworkStream n = client.GetStream();
                     message = new BinaryReader(n).ReadString();
-                    //Console.WriteLine("Other: " + message);
 
-                    Form.listBoxChat.Items.Add(message);
+                    //Form.listBoxChat.Items.Add(message);
 
                     var deserialized = JsonConvert.DeserializeObject<Protocoll>(message);
 
