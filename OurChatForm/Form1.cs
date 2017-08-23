@@ -77,7 +77,7 @@ namespace OurChatForm
 
             MyClient.Send(jsonmessage);
 
-
+            //
             listBoxUsers.SelectedIndex = 0;
             textBoxMessage.Text = "";
         }
