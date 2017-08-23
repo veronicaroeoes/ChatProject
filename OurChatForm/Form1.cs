@@ -47,6 +47,7 @@ namespace OurChatForm
             listBoxUsers.SelectedIndex = 0;
             MyClient.Send(jsonmessage);
 
+
             textBoxUserName.Enabled = false;
             textboxIpadress.Enabled = false;
 

@@ -69,7 +69,7 @@ namespace OurChatForm
                             Form.listBoxUsers.Items.Add(user);
                         }
                         Form.listBoxUsers.SelectedIndex = 0;
-                        // Form.textBoxUserName.Text = ""; 
+                        
                     }
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.Message)
                     {
