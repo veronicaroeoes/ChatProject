@@ -43,6 +43,9 @@ namespace OurChatForm
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
             
             MyClient.Send(jsonmessage);
+
+            //sätt public till default.
+            //markerad kanal är den som du skickar till.
             //MyClient.Listen();
         }
 
