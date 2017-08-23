@@ -48,15 +48,6 @@ namespace OurChatForm
 
         private void listBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<Client> users = new List<Client>();
-            //todo: List of Clients ska innehålla clients från servern
-
-            //Networking_server.Server - List<ClientHandler> clients
-
-            //foreach (var user in clients)
-            //{
-            //    listBoxUsers.Items.Add(user);
-            //}
 
         }
 
