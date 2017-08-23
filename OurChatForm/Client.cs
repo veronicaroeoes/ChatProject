@@ -77,6 +77,10 @@ namespace OurChatForm
                     }
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.ErrorMessage)
                     {
+                        if (deserialized.ErrorType == ClassLibrary.ErrorType.UserNameTaken)
+                        {
+                            Form.setTextBoxes(true);
+                        }
                         MessageBox.Show(deserialized.Content);
                     }
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.PrivateMessage)

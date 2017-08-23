@@ -29,11 +29,21 @@ namespace OurChatForm
 
         }
 
+        public void setTextBoxes(bool status)
+        {
+            textBoxUserName.Enabled = status;
+            textboxIpadress.Enabled = status;
+            buttonCreateUser.Enabled = status;
+        }
+
         private void buttonCreateUser_Click(object sender, EventArgs e)
         {
-            MyClient = new Client(textBoxUserName.Text, textboxIpadress.Text, this);
+            if (MyClient == null)
+            {
+                MyClient = new Client(textBoxUserName.Text, textboxIpadress.Text, this);
 
-            MyClient.Start();
+                MyClient.Start();
+            }
 
             string usertemp = textBoxUserName.Text;
 
@@ -47,9 +57,7 @@ namespace OurChatForm
             listBoxUsers.SelectedIndex = 0;
             MyClient.Send(jsonmessage);
 
-
-            textBoxUserName.Enabled = false;
-            textboxIpadress.Enabled = false;
+            setTextBoxes(false);
 
             //markerad kanal är den som du skickar till.
             //MyClient.Listen();

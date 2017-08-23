@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
+    public enum ErrorType
+    {
+        UserNameTaken,
+        Other
+    }
+
     public enum ProtocolType
     {
         ListUsers,
@@ -17,6 +23,7 @@ namespace ClassLibrary
     public class Protocoll
     {
         public ProtocolType MessageType { get; set; }
+        public ErrorType ErrorType { get; set; } = ErrorType.Other;
         public string Content { get; set; }
         public string Version { get; set; } = "1.0";
         public string Sender { get; set; }

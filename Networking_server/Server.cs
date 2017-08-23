@@ -73,6 +73,11 @@ namespace Networking_server
 
         internal bool UserNameOk(string sender)
         {
+            if (sender == "Public")
+            {
+                return false;
+            }
+
             return clients.FindAll(x => x.UserName == sender).Count == 0;
         }
 

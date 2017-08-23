@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using ClassLibrary;
+using System.Windows.Forms;
 
 namespace Networking_server
 {
@@ -34,7 +35,7 @@ namespace Networking_server
                     message = new BinaryReader(n).ReadString();
 
                     var deserialized = JsonConvert.DeserializeObject<Protocoll>(message);
-                    
+
 
                     if (deserialized.MessageType == ClassLibrary.ProtocolType.UserName)
                     {
@@ -43,18 +44,21 @@ namespace Networking_server
                             this.UserName = deserialized.Sender;
                             myServer.AddClient(this);
                             //Todo: Skriv till chattboxen att någon kom med
-                            //Todo: uppdatera listboxen?? varje gång något händer
-                           
+                            //Todo: Enable textBoxUserName
+
                             break;
                         }
                         else
                         {
                             Protocoll errorProtocoll = new Protocoll();
                             errorProtocoll.MessageType = ClassLibrary.ProtocolType.ErrorMessage;
+                            errorProtocoll.ErrorType = ErrorType.UserNameTaken;
                             errorProtocoll.Content = "Username is already taken.";
                             var packed = JsonConvert.SerializeObject(errorProtocoll);
 
                             Send(packed);
+                            //Todo: Inte enable textBoxUserName
+
                         }
                     }
 
