@@ -52,8 +52,9 @@ namespace Networking_server
                             Protocoll errorProtocoll = new Protocoll();
                             errorProtocoll.MessageType = ClassLibrary.ProtocolType.ErrorMessage;
                             errorProtocoll.Content = "Username is already taken.";
+                            var packed = JsonConvert.SerializeObject(errorProtocoll);
 
-                            Send(JsonConvert.SerializeObject(errorProtocoll.Content));
+                            Send(packed);
                         }
                     }
 
