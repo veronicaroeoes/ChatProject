@@ -67,7 +67,16 @@ namespace OurChatForm
             string myMessage = textBoxMessage.Text;
 
             ClassLibrary.Protocoll myProtocoll = new Protocoll();
-            myProtocoll.MessageType = ProtocolType.Message;
+
+            if (receiver == listBoxUsers.Items[0].ToString())
+            {
+                myProtocoll.MessageType = ProtocolType.Message;
+            }
+            else
+            {
+                myProtocoll.MessageType = ProtocolType.PrivateMessage;
+            }
+
             myProtocoll.Receiver = receiver;
             myProtocoll.Content = myMessage;
             myProtocoll.Sender = textBoxUserName.Text;
