@@ -105,6 +105,10 @@ namespace Networking_server
                         //TODO METOD FÖR PM
                         //myServer.Broadcast(this, )
                     }
+                    else if (deserialized.MessageType == ClassLibrary.ProtocolType.DeleteClient)
+                    {
+                        message = "quit";
+                    }
                 }
 
                 myServer.DisconnectClient(this);

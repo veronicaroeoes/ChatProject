@@ -39,6 +39,9 @@
             this.listBoxUsers = new System.Windows.Forms.ListBox();
             this.labelFriendsOnline = new System.Windows.Forms.Label();
             this.buttonCreateUser = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonDisconnectUser = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelUserName
@@ -46,7 +49,7 @@
             this.labelUserName.AutoSize = true;
             this.labelUserName.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserName.ForeColor = System.Drawing.Color.White;
-            this.labelUserName.Location = new System.Drawing.Point(30, 43);
+            this.labelUserName.Location = new System.Drawing.Point(34, 121);
             this.labelUserName.Name = "labelUserName";
             this.labelUserName.Size = new System.Drawing.Size(78, 19);
             this.labelUserName.TabIndex = 0;
@@ -56,7 +59,7 @@
             // 
             this.textBoxUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
             this.textBoxUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUserName.Location = new System.Drawing.Point(33, 63);
+            this.textBoxUserName.Location = new System.Drawing.Point(37, 141);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(133, 15);
             this.textBoxUserName.TabIndex = 1;
@@ -66,7 +69,7 @@
             // 
             this.textboxIpadress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
             this.textboxIpadress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textboxIpadress.Location = new System.Drawing.Point(33, 108);
+            this.textboxIpadress.Location = new System.Drawing.Point(37, 186);
             this.textboxIpadress.Name = "textboxIpadress";
             this.textboxIpadress.Size = new System.Drawing.Size(133, 15);
             this.textboxIpadress.TabIndex = 3;
@@ -76,7 +79,7 @@
             this.labelIPAddress.AutoSize = true;
             this.labelIPAddress.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelIPAddress.ForeColor = System.Drawing.Color.White;
-            this.labelIPAddress.Location = new System.Drawing.Point(30, 88);
+            this.labelIPAddress.Location = new System.Drawing.Point(34, 166);
             this.labelIPAddress.Name = "labelIPAddress";
             this.labelIPAddress.Size = new System.Drawing.Size(80, 19);
             this.labelIPAddress.TabIndex = 2;
@@ -90,7 +93,7 @@
             this.listBoxChat.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxChat.FormattingEnabled = true;
             this.listBoxChat.ItemHeight = 18;
-            this.listBoxChat.Location = new System.Drawing.Point(192, 43);
+            this.listBoxChat.Location = new System.Drawing.Point(196, 121);
             this.listBoxChat.Name = "listBoxChat";
             this.listBoxChat.Size = new System.Drawing.Size(805, 324);
             this.listBoxChat.TabIndex = 4;
@@ -102,7 +105,7 @@
             this.buttonSend.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSend.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSend.ForeColor = System.Drawing.Color.White;
-            this.buttonSend.Location = new System.Drawing.Point(864, 484);
+            this.buttonSend.Location = new System.Drawing.Point(868, 562);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(133, 32);
             this.buttonSend.TabIndex = 5;
@@ -117,7 +120,7 @@
             this.textBoxMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxMessage.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBoxMessage.Location = new System.Drawing.Point(192, 388);
+            this.textBoxMessage.Location = new System.Drawing.Point(196, 466);
             this.textBoxMessage.Name = "textBoxMessage";
             this.textBoxMessage.Size = new System.Drawing.Size(805, 87);
             this.textBoxMessage.TabIndex = 6;
@@ -131,7 +134,7 @@
             this.listBoxUsers.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxUsers.FormattingEnabled = true;
             this.listBoxUsers.ItemHeight = 18;
-            this.listBoxUsers.Location = new System.Drawing.Point(33, 223);
+            this.listBoxUsers.Location = new System.Drawing.Point(37, 301);
             this.listBoxUsers.Name = "listBoxUsers";
             this.listBoxUsers.Size = new System.Drawing.Size(133, 252);
             this.listBoxUsers.TabIndex = 7;
@@ -142,7 +145,7 @@
             this.labelFriendsOnline.AutoSize = true;
             this.labelFriendsOnline.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFriendsOnline.ForeColor = System.Drawing.Color.White;
-            this.labelFriendsOnline.Location = new System.Drawing.Point(33, 200);
+            this.labelFriendsOnline.Location = new System.Drawing.Point(37, 278);
             this.labelFriendsOnline.Name = "labelFriendsOnline";
             this.labelFriendsOnline.Size = new System.Drawing.Size(92, 19);
             this.labelFriendsOnline.TabIndex = 8;
@@ -154,7 +157,7 @@
             this.buttonCreateUser.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.buttonCreateUser.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreateUser.ForeColor = System.Drawing.Color.White;
-            this.buttonCreateUser.Location = new System.Drawing.Point(33, 147);
+            this.buttonCreateUser.Location = new System.Drawing.Point(37, 225);
             this.buttonCreateUser.Name = "buttonCreateUser";
             this.buttonCreateUser.Size = new System.Drawing.Size(133, 31);
             this.buttonCreateUser.TabIndex = 9;
@@ -162,12 +165,35 @@
             this.buttonCreateUser.UseVisualStyleBackColor = false;
             this.buttonCreateUser.Click += new System.EventHandler(this.buttonCreateUser_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::OurChatForm.Properties.Resources.Chattify_logo_vit1;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(339, 128);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
+            // buttonDisconnectUser
+            // 
+            this.buttonDisconnectUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(110)))), ((int)(((byte)(158)))));
+            this.buttonDisconnectUser.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDisconnectUser.ForeColor = System.Drawing.Color.White;
+            this.buttonDisconnectUser.Location = new System.Drawing.Point(868, 31);
+            this.buttonDisconnectUser.Name = "buttonDisconnectUser";
+            this.buttonDisconnectUser.Size = new System.Drawing.Size(133, 26);
+            this.buttonDisconnectUser.TabIndex = 11;
+            this.buttonDisconnectUser.Text = "Disconnect";
+            this.buttonDisconnectUser.UseVisualStyleBackColor = false;
+            this.buttonDisconnectUser.Click += new System.EventHandler(this.buttonDisconnectUser_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(177)))), ((int)(((byte)(75)))));
-            this.ClientSize = new System.Drawing.Size(1034, 526);
+            this.ClientSize = new System.Drawing.Size(1034, 610);
+            this.Controls.Add(this.buttonDisconnectUser);
             this.Controls.Add(this.buttonCreateUser);
             this.Controls.Add(this.labelFriendsOnline);
             this.Controls.Add(this.listBoxUsers);
@@ -178,9 +204,12 @@
             this.Controls.Add(this.labelIPAddress);
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.labelUserName);
+            this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Chattify";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,6 +228,8 @@
         public System.Windows.Forms.ListBox listBoxUsers;
         private System.Windows.Forms.Label labelFriendsOnline;
         private System.Windows.Forms.Button buttonCreateUser;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonDisconnectUser;
     }
 }
 

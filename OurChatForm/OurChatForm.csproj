@@ -68,6 +68,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -88,6 +89,18 @@
       <Project>{4a6864b2-80d4-4f59-89b1-1502c739736a}</Project>
       <Name>ClassLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chattify-logo-vit.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChattifylogoVitPS.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chattifyVitLogo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chattify-logo-vit1.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
