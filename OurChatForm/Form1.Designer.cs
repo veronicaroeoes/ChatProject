@@ -86,7 +86,7 @@
             this.listBoxChat.ItemHeight = 16;
             this.listBoxChat.Location = new System.Drawing.Point(192, 43);
             this.listBoxChat.Name = "listBoxChat";
-            this.listBoxChat.Size = new System.Drawing.Size(805, 100);
+            this.listBoxChat.Size = new System.Drawing.Size(805, 420);
             this.listBoxChat.TabIndex = 4;
             // 
             // buttonSend
