@@ -9,6 +9,7 @@ namespace ClassLibrary
     public enum ErrorType
     {
         UserNameTaken,
+        UserNameToShort,
         Other
     }
 

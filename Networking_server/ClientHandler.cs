@@ -36,6 +36,29 @@ namespace Networking_server
 
                     var deserialized = JsonConvert.DeserializeObject<Protocoll>(message);
 
+                    //Protocoll errorProtocoll = new Protocoll();
+
+                    //if (myServer.UserNameOk(deserialized.Sender) == ErrorType.UserNameTaken)
+                    //{
+                    //    errorProtocoll.MessageType = ClassLibrary.ProtocolType.ErrorMessage;
+                    //    errorProtocoll.ErrorType = ErrorType.UserNameTaken;
+                    //    errorProtocoll.Content = "Username is already taken.";
+                    //    var packed = JsonConvert.SerializeObject(errorProtocoll);
+
+                    //    Send(packed);
+                    //}
+                    //else if (myServer.UserNameOk(deserialized.Sender) == ErrorType.UserNameToShort)
+                    //{
+
+                    //}
+                    //else
+                    //{
+                    //    this.UserName = deserialized.Sender;
+                    //    myServer.AddClient(this);
+                    //    //Todo: Skriv till chattboxen att någon kom med
+
+                    //    break;
+                    //}
 
                     if (deserialized.MessageType == ClassLibrary.ProtocolType.UserName)
                     {
@@ -44,7 +67,6 @@ namespace Networking_server
                             this.UserName = deserialized.Sender;
                             myServer.AddClient(this);
                             //Todo: Skriv till chattboxen att någon kom med
-                            //Todo: Enable textBoxUserName
 
                             break;
                         }
@@ -52,12 +74,10 @@ namespace Networking_server
                         {
                             Protocoll errorProtocoll = new Protocoll();
                             errorProtocoll.MessageType = ClassLibrary.ProtocolType.ErrorMessage;
-                            errorProtocoll.ErrorType = ErrorType.UserNameTaken;
                             errorProtocoll.Content = "Username is already taken.";
                             var packed = JsonConvert.SerializeObject(errorProtocoll);
 
                             Send(packed);
-                            //Todo: Inte enable textBoxUserName
 
                         }
                     }
