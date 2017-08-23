@@ -42,8 +42,11 @@ namespace OurChatForm
             myProtocoll.Sender = usertemp;
 
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
-            
+
+
+            listBoxUsers.SelectedIndex = 0;
             MyClient.Send(jsonmessage);
+
             //MyClient.Listen();
         }
 
@@ -66,8 +69,11 @@ namespace OurChatForm
 
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
 
+
             MyClient.Send(jsonmessage);
 
+
+            listBoxUsers.SelectedIndex = 0;
             textBoxMessage.Text = "";
         }
     }
