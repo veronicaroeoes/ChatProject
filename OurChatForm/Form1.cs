@@ -20,6 +20,7 @@ namespace OurChatForm
         {
             InitializeComponent();
             listBoxUsers.Items.Add("Public");
+            listBoxUsers.SelectedIndex = 0;
             CheckForIllegalCrossThreadCalls = false;
         }
 
