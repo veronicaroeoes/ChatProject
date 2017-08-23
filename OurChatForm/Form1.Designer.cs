@@ -78,7 +78,7 @@
             this.listBoxChat.ItemHeight = 16;
             this.listBoxChat.Location = new System.Drawing.Point(192, 43);
             this.listBoxChat.Name = "listBoxChat";
-            this.listBoxChat.Size = new System.Drawing.Size(315, 420);
+            this.listBoxChat.Size = new System.Drawing.Size(805, 420);
             this.listBoxChat.TabIndex = 4;
             // 
             // buttonSend
@@ -132,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 506);
+            this.ClientSize = new System.Drawing.Size(1034, 506);
             this.Controls.Add(this.buttonCreateUser);
             this.Controls.Add(this.labelFriendsOnline);
             this.Controls.Add(this.listBoxUsers);
