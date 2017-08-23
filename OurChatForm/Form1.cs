@@ -47,7 +47,9 @@ namespace OurChatForm
             listBoxUsers.SelectedIndex = 0;
             MyClient.Send(jsonmessage);
 
-            //sätt public till default.
+            textBoxUserName.Enabled = false;
+            textboxIpadress.Enabled = false;
+
             //markerad kanal är den som du skickar till.
             //MyClient.Listen();
         }
