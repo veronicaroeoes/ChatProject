@@ -44,7 +44,7 @@ namespace Networking_server
                             myServer.AddClient(this);
                             //Todo: Skriv till chattboxen att någon kom med
                             //Todo: uppdatera listboxen?? varje gång något händer
-                           
+                            
                             break;
                         }
                         else
@@ -54,6 +54,7 @@ namespace Networking_server
                             errorProtocoll.Content = "Username is already taken.";
 
                             Send(JsonConvert.SerializeObject(errorProtocoll.Content));
+
                         }
                     }
 

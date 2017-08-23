@@ -58,6 +58,7 @@
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(133, 22);
             this.textBoxUserName.TabIndex = 1;
+            this.textBoxUserName.TextChanged += new System.EventHandler(this.textBoxUserName_TextChanged);
             // 
             // textboxIpadress
             // 

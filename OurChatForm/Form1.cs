@@ -80,5 +80,10 @@ namespace OurChatForm
             listBoxUsers.SelectedIndex = 0;
             textBoxMessage.Text = "";
         }
+
+        public void textBoxUserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
