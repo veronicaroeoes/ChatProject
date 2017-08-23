@@ -79,18 +79,18 @@ namespace OurChatForm
                     {
                         MessageBox.Show(deserialized.Content);
                     }
-                    //else if (deserialized.MessageType == ClassLibrary.ProtocolType.PrivateMessage)
-                    //{
-                    //    string[] Receivers = deserialized.Receiver.Split(';');
-                    //    foreach (var receiver in Receivers)
-                    //    {
-                    //        Form.listBoxUsers.Items.Add(user);
-                    //    }
-                    //    Form.listBoxUsers.SelectedIndex = 0;
+                    else if (deserialized.MessageType == ClassLibrary.ProtocolType.PrivateMessage)
+                    {
+                        //string[] Receivers = deserialized.Receiver.Split(';');
+                        //foreach (var receiver in Receivers)
+                        //{
+                        //    Form.listBoxUsers.Items.Add(user);
+                        //}
+                        //Form.listBoxUsers.SelectedIndex = 0;
 
-                    //    //Skicka nedan ENDAST till deserialized.Receiver
-                    //    Form.listBoxChat.Items.Add($"{deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
-                    //}
+                        //Skicka nedan ENDAST till deserialized.Receiver
+                        Form.listBoxChat.Items.Add($"{deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
+                    }
                 }
                 catch (Exception ex)
                 {
