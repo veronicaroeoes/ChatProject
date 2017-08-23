@@ -72,7 +72,7 @@ namespace Networking_server
 
                     if (deserialized.MessageType == ClassLibrary.ProtocolType.Message)
                     {
-                        myServer.Broadcast(this, deserialized.Content, deserialized.Sender);
+                        myServer.Broadcast(this, message, deserialized.Sender);
                     }
                 }
 

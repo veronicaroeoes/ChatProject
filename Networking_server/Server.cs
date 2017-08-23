@@ -76,18 +76,13 @@ namespace Networking_server
             return clients.FindAll(x => x.UserName == sender).Count == 0;
         }
 
-        public void Broadcast(ClientHandler client, string message, string user)
+        public void Broadcast(ClientHandler client, string jsonmessage, string user)
         {
 
 
             foreach (ClientHandler tmpClient in clients)
             {
-                ClassLibrary.Protocoll myProtocoll = new Protocoll();
-                myProtocoll.MessageType = ClassLibrary.ProtocolType.Message;
-                myProtocoll.Content = message;
-                myProtocoll.Sender = user;
 
-                string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
 
                 NetworkStream n = tmpClient.tcpclient.GetStream();
                 BinaryWriter w = new BinaryWriter(n);
