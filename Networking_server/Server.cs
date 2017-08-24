@@ -63,7 +63,8 @@ namespace Networking_server
             listOfUsers.MessageType = ClassLibrary.ProtocolType.ListUsers;
             listOfUsers.Content = tmp;
             listOfUsers.Sender = clientHandler.UserName;
-
+            listOfUsers.DateTime = DateTime.Now;
+            
             string jsonmessage = JsonConvert.SerializeObject(listOfUsers);
 
             Broadcast(clientHandler, jsonmessage, clientHandler.UserName);
@@ -125,7 +126,8 @@ namespace Networking_server
             listOfUsers.MessageType = ClassLibrary.ProtocolType.ListUsers;
             listOfUsers.Content = tmp;
             listOfUsers.Sender = client.UserName;
-
+            listOfUsers.DateTime = DateTime.Now;
+            
             string jsonmessage = JsonConvert.SerializeObject(listOfUsers);
 
             Broadcast(client, jsonmessage, client.UserName);

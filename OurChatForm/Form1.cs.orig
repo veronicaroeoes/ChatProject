@@ -92,12 +92,20 @@ namespace OurChatForm
                     myProtocoll.MessageType = ProtocolType.PrivateMessage;
                 }
 
+<<<<<<< HEAD
             myProtocoll.Receiver = receiver;
             myProtocoll.Content = myMessage;
             myProtocoll.Sender = textBoxUserName.Text;
             myProtocoll.DateTime = DateTime.Now;
             
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
+=======
+                myProtocoll.Receiver = receiver;
+                myProtocoll.Content = myMessage;
+                myProtocoll.Sender = textBoxUserName.Text;
+
+                string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
+>>>>>>> 5dc6b040046f9f53f3cb174d3e025f70aead48b7
 
 
                 MyClient.Send(jsonmessage);
