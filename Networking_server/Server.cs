@@ -33,7 +33,6 @@ namespace Networking_server
                     //clients.Add(newClient);
                     Console.WriteLine("New connection");
                     
-
                     Thread clientThread = new Thread(newClient.Run);
                     clientThread.Start();
                 }
@@ -106,8 +105,7 @@ namespace Networking_server
         {
             clients.Remove(client);
             Deleteclient(client);
-            //Console.WriteLine("Client X has left the building...");
-            Broadcast(client, "Client X has left the building...", client.UserName);
+            Console.WriteLine($"Client {client.UserName} has left the building...");
         }
 
         private void Deleteclient(ClientHandler client)

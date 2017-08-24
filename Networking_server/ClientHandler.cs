@@ -91,7 +91,6 @@ namespace Networking_server
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.PrivateMessage)
                     {
                         myServer.SendPM(this, message, deserialized.Sender, deserialized.Receiver);
-                        //myServer.Broadcast(this, )
                     }
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.DeleteClient)
                     {
