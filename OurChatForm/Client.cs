@@ -70,7 +70,7 @@ namespace OurChatForm
                             Form.listBoxUsers.Items.Add(user);
                         }
 
-                        Form.listBoxUsers.SelectedIndex = 0;
+                        //Form.listBoxUsers.SelectedIndex = 0;
                     }
 
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.Message)

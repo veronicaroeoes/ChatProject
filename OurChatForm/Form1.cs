@@ -74,33 +74,38 @@ namespace OurChatForm
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            string receiver = listBoxUsers.Items[listBoxUsers.SelectedIndex].ToString();
-
-            string myMessage = textBoxMessage.Text;
-
-            ClassLibrary.Protocoll myProtocoll = new Protocoll();
-
-            if (receiver == listBoxUsers.Items[0].ToString())
+            if (listBoxUsers.SelectedIndex != -1)
             {
-                myProtocoll.MessageType = ProtocolType.Message;
+                string receiver = listBoxUsers.Items[listBoxUsers.SelectedIndex].ToString();
+
+                string myMessage = textBoxMessage.Text;
+
+                ClassLibrary.Protocoll myProtocoll = new Protocoll();
+
+                if (receiver == listBoxUsers.Items[0].ToString())
+                {
+                    myProtocoll.MessageType = ProtocolType.Message;
+                }
+                else
+                {
+                    myProtocoll.MessageType = ProtocolType.PrivateMessage;
+                }
+
+                myProtocoll.Receiver = receiver;
+                myProtocoll.Content = myMessage;
+                myProtocoll.Sender = textBoxUserName.Text;
+
+                string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
+
+
+                MyClient.Send(jsonmessage);
+
+                //
+                listBoxUsers.SelectedIndex = 0;
+                textBoxMessage.Text = "";
             }
             else
-            {
-                myProtocoll.MessageType = ProtocolType.PrivateMessage;
-            }
-
-            myProtocoll.Receiver = receiver;
-            myProtocoll.Content = myMessage;
-            myProtocoll.Sender = textBoxUserName.Text;
-
-            string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
-
-
-            MyClient.Send(jsonmessage);
-
-            //
-            listBoxUsers.SelectedIndex = 0;
-            textBoxMessage.Text = "";
+                MessageBox.Show("HOX! Select a receiver.");
         }
 
         public void textBoxUserName_TextChanged(object sender, EventArgs e)
