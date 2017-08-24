@@ -82,8 +82,10 @@ namespace OurChatForm
                             ////Då har någon gått ur
                             string[] users2 = new string[Form.listBoxUsers.Items.Count];
 
-                            for (int i = 0; i < Form.listBoxUsers.Items.Count; i++)
-                                users2[i] = Form.listBoxUsers.Items[i].ToString();
+                            Form.listBoxUsers.Items.CopyTo(users2, 0);
+
+                            //for (int i = 0; i < Form.listBoxUsers.Items.Count; i++)
+                            //    users2[i] = Form.listBoxUsers.Items[i].ToString();
 
                             //var resultSet = users2
                             //    .Except(users).ToArray();
