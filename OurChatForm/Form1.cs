@@ -121,7 +121,8 @@ namespace OurChatForm
 
             //string myMessage = textBoxMessage.Text;
 
-            listBoxChat.Items.Add($"{DateTime.Now}: User {textBoxUserName.Text} left the chat");
+            listBoxChat.Items.Add($"{DateTime.Now.ToString("HH: mm")}");
+            listBoxChat.Items.Add($"User {textBoxUserName.Text} left the chat");
             listBoxUsers.Items.Remove(textBoxUserName.Text);
 
             ClassLibrary.Protocoll myProtocoll = new Protocoll();
