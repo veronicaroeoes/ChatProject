@@ -68,7 +68,7 @@ namespace OurChatForm
 
         private void listBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //this.listBoxUsers.Invalidate();
+            listBoxUsers.Invalidate();
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
@@ -157,9 +157,10 @@ namespace OurChatForm
             int index = e.Index;
             Graphics g = e.Graphics;
 
-            foreach (int selectedIndex in this.listBoxUsers.SelectedIndices)
+            foreach (int itemIndex in listBoxUsers.SelectedIndices)
             {
-                if (index == selectedIndex)
+                
+                if (index == itemIndex)
                 {
                     // Draw the new background colour
                     e.DrawBackground();
@@ -169,7 +170,7 @@ namespace OurChatForm
 
             // Get the item details
             Font font = listBoxUsers.Font;
-            Color colour = listBoxUsers.ForeColor;
+            Color colour = listBoxUsers.BackColor;
             string text = listBoxUsers.Items[index].ToString();
 
             // Print the text
