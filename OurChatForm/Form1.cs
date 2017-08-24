@@ -22,6 +22,7 @@ namespace OurChatForm
             listBoxUsers.Items.Add("Public");
             listBoxUsers.SelectedIndex = 0;
             CheckForIllegalCrossThreadCalls = false;
+            textBoxMessage.Enabled = false;
         }
 
         private void textBoxMessage_TextChanged(object sender, EventArgs e)
@@ -34,6 +35,8 @@ namespace OurChatForm
             textBoxUserName.Enabled = status;
             textboxIpadress.Enabled = status;
             buttonCreateUser.Enabled = status;
+
+            textBoxMessage.Enabled = !status;
         }
 
         private void buttonCreateUser_Click(object sender, EventArgs e)

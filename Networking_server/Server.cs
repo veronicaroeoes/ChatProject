@@ -69,6 +69,8 @@ namespace Networking_server
 
             Broadcast(clientHandler, jsonmessage, clientHandler.UserName);
 
+            
+
         }
 
         internal ErrorType UserNameOk(string sender)
