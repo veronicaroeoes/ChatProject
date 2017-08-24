@@ -47,11 +47,11 @@
             // labelUserName
             // 
             this.labelUserName.AutoSize = true;
-            this.labelUserName.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserName.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserName.ForeColor = System.Drawing.Color.White;
             this.labelUserName.Location = new System.Drawing.Point(34, 121);
             this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(78, 19);
+            this.labelUserName.Size = new System.Drawing.Size(92, 23);
             this.labelUserName.TabIndex = 0;
             this.labelUserName.Text = "Username";
             // 
@@ -59,9 +59,10 @@
             // 
             this.textBoxUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
             this.textBoxUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUserName.Location = new System.Drawing.Point(37, 141);
+            this.textBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUserName.Location = new System.Drawing.Point(37, 147);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(133, 15);
+            this.textBoxUserName.Size = new System.Drawing.Size(133, 20);
             this.textBoxUserName.TabIndex = 1;
             this.textBoxUserName.TextChanged += new System.EventHandler(this.textBoxUserName_TextChanged);
             // 
@@ -69,19 +70,20 @@
             // 
             this.textboxIpadress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
             this.textboxIpadress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textboxIpadress.Location = new System.Drawing.Point(37, 186);
+            this.textboxIpadress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxIpadress.Location = new System.Drawing.Point(37, 196);
             this.textboxIpadress.Name = "textboxIpadress";
-            this.textboxIpadress.Size = new System.Drawing.Size(133, 15);
+            this.textboxIpadress.Size = new System.Drawing.Size(133, 20);
             this.textboxIpadress.TabIndex = 3;
             // 
             // labelIPAddress
             // 
             this.labelIPAddress.AutoSize = true;
-            this.labelIPAddress.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIPAddress.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelIPAddress.ForeColor = System.Drawing.Color.White;
-            this.labelIPAddress.Location = new System.Drawing.Point(34, 166);
+            this.labelIPAddress.Location = new System.Drawing.Point(34, 170);
             this.labelIPAddress.Name = "labelIPAddress";
-            this.labelIPAddress.Size = new System.Drawing.Size(80, 19);
+            this.labelIPAddress.Size = new System.Drawing.Size(92, 23);
             this.labelIPAddress.TabIndex = 2;
             this.labelIPAddress.Text = "IP-address";
             // 
@@ -90,12 +92,12 @@
             this.listBoxChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
             this.listBoxChat.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxChat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.listBoxChat.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxChat.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxChat.FormattingEnabled = true;
-            this.listBoxChat.ItemHeight = 18;
+            this.listBoxChat.ItemHeight = 23;
             this.listBoxChat.Location = new System.Drawing.Point(196, 121);
             this.listBoxChat.Name = "listBoxChat";
-            this.listBoxChat.Size = new System.Drawing.Size(805, 324);
+            this.listBoxChat.Size = new System.Drawing.Size(805, 322);
             this.listBoxChat.TabIndex = 4;
             // 
             // buttonSend
@@ -103,7 +105,7 @@
             this.buttonSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(110)))), ((int)(((byte)(158)))));
             this.buttonSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonSend.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSend.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSend.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSend.ForeColor = System.Drawing.Color.White;
             this.buttonSend.Location = new System.Drawing.Point(868, 562);
             this.buttonSend.Name = "buttonSend";
@@ -118,7 +120,7 @@
             // 
             this.textBoxMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
             this.textBoxMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxMessage.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMessage.Font = new System.Drawing.Font("Open Sans", 10.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBoxMessage.Location = new System.Drawing.Point(196, 466);
             this.textBoxMessage.Name = "textBoxMessage";
@@ -126,28 +128,29 @@
             this.textBoxMessage.TabIndex = 6;
             this.textBoxMessage.Text = "write message...";
             this.textBoxMessage.TextChanged += new System.EventHandler(this.textBoxMessage_TextChanged);
+            this.textBoxMessage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxMessage_KeyUp);
             // 
             // listBoxUsers
             // 
             this.listBoxUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
             this.listBoxUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxUsers.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxUsers.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxUsers.FormattingEnabled = true;
-            this.listBoxUsers.ItemHeight = 18;
+            this.listBoxUsers.ItemHeight = 23;
             this.listBoxUsers.Location = new System.Drawing.Point(37, 301);
             this.listBoxUsers.Name = "listBoxUsers";
-            this.listBoxUsers.Size = new System.Drawing.Size(133, 252);
+            this.listBoxUsers.Size = new System.Drawing.Size(133, 253);
             this.listBoxUsers.TabIndex = 7;
             this.listBoxUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxUsers_SelectedIndexChanged);
             // 
             // labelFriendsOnline
             // 
             this.labelFriendsOnline.AutoSize = true;
-            this.labelFriendsOnline.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFriendsOnline.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFriendsOnline.ForeColor = System.Drawing.Color.White;
             this.labelFriendsOnline.Location = new System.Drawing.Point(37, 278);
             this.labelFriendsOnline.Name = "labelFriendsOnline";
-            this.labelFriendsOnline.Size = new System.Drawing.Size(92, 19);
+            this.labelFriendsOnline.Size = new System.Drawing.Size(106, 23);
             this.labelFriendsOnline.TabIndex = 8;
             this.labelFriendsOnline.Text = "Your friends";
             // 
@@ -155,9 +158,9 @@
             // 
             this.buttonCreateUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(110)))), ((int)(((byte)(158)))));
             this.buttonCreateUser.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.buttonCreateUser.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCreateUser.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreateUser.ForeColor = System.Drawing.Color.White;
-            this.buttonCreateUser.Location = new System.Drawing.Point(37, 225);
+            this.buttonCreateUser.Location = new System.Drawing.Point(37, 232);
             this.buttonCreateUser.Name = "buttonCreateUser";
             this.buttonCreateUser.Size = new System.Drawing.Size(133, 31);
             this.buttonCreateUser.TabIndex = 9;
@@ -168,7 +171,7 @@
             // buttonDisconnectUser
             // 
             this.buttonDisconnectUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(110)))), ((int)(((byte)(158)))));
-            this.buttonDisconnectUser.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDisconnectUser.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDisconnectUser.ForeColor = System.Drawing.Color.White;
             this.buttonDisconnectUser.Location = new System.Drawing.Point(868, 31);
             this.buttonDisconnectUser.Name = "buttonDisconnectUser";

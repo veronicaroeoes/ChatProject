@@ -65,7 +65,21 @@ namespace OurChatForm
 
         private void listBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //if (e.Index < 0) return;
+            ////if the item state is selected them change the back color 
+            //if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            //    e = new DrawItemEventArgs(e.Graphics,
+            //                              e.Font,
+            //                              e.Bounds,
+            //                              e.Index,
+            //                              e.State ^ DrawItemState.Selected,
+            //                              e.ForeColor,
+            //                              Color.Yellow);//Choose the color
 
+            //// Draw the background of the ListBox control for each item.
+            //e.DrawBackground();
+            //// Draw the current item text
+            //e.Graphics.DrawString(listBox1.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
@@ -130,6 +144,15 @@ namespace OurChatForm
 
 
             MyClient.Send(jsonmessage);
+        }
+
+        private void textBoxMessage_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                // SEND
+                buttonSend_Click(sender, e);
+            }
         }
     }
 }
