@@ -23,6 +23,7 @@ namespace OurChatForm
             listBoxUsers.SelectedIndex = 0;
             CheckForIllegalCrossThreadCalls = false;
             textBoxMessage.Enabled = false;
+            //listBoxChat
         }
 
         private void textBoxMessage_TextChanged(object sender, EventArgs e)
@@ -98,10 +99,15 @@ namespace OurChatForm
 
             MyClient.Send(jsonmessage);
 
-            //
-            listBoxUsers.SelectedIndex = 0;
+
+            //listBoxUsers.SelectedIndex = 0;
             textBoxMessage.Text = "";
+
+            int nItems = (int)(listBoxChat.Height / listBoxChat.ItemHeight);
+            listBoxChat.TopIndex = listBoxChat.Items.Count - nItems;
+            listBoxChat.Invalidate();
         }
+
 
         public void textBoxUserName_TextChanged(object sender, EventArgs e)
         {
@@ -113,7 +119,6 @@ namespace OurChatForm
             //string receiver = listBoxUsers.Items[listBoxUsers.SelectedIndex].ToString();
 
             //string myMessage = textBoxMessage.Text;
-
             listBoxChat.Items.Add($"{textBoxUserName.Text} has left the chat");
             listBoxUsers.Items.Remove(textBoxUserName.Text);
 
@@ -127,7 +132,7 @@ namespace OurChatForm
             MyClient.DisconnectMe();
 
             setTextBoxes(true);
-            MyClient = null; 
+            MyClient = null;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -149,6 +154,7 @@ namespace OurChatForm
             {
                 // SEND
                 buttonSend_Click(sender, e);
+
             }
         }
 
@@ -166,7 +172,7 @@ namespace OurChatForm
 
             foreach (int itemIndex in listBoxUsers.SelectedIndices)
             {
-                
+
                 if (index == itemIndex)
                 {
                     // Draw the new background colour
@@ -183,7 +189,18 @@ namespace OurChatForm
             // Print the text
             g.DrawString(text, font, new SolidBrush(Color.White), (float)e.Bounds.X, (float)e.Bounds.Y);
             e.DrawFocusRectangle();
+        }
 
+        public void AddChatMessage(string message)
+        {
+            listBoxChat.Items.Add(message);
+
+            textBoxMessage.Focus();
+        }
+
+        private void listBoxChat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //listBox1.SelectedIndex = listBox1.Items.Count - 1; textBox1.Focus()
         }
     }
 }
