@@ -72,9 +72,7 @@ namespace Networking_server
                         var packed = JsonConvert.SerializeObject(errorProtocoll);
 
                         Send(packed);
-
                     }
-
                 }
 
                 message = "";
@@ -93,7 +91,6 @@ namespace Networking_server
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.PrivateMessage)
                     {
                         myServer.SendPM(this, message, deserialized.Sender, deserialized.Receiver);
-                        //TODO METOD FÖR PM
                         //myServer.Broadcast(this, )
                     }
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.DeleteClient)
@@ -102,8 +99,8 @@ namespace Networking_server
                     }
                 }
 
-                myServer.DisconnectClient(this);
-                tcpclient.Close();
+                myServer.DisconnectClient(this); // Path c
+                tcpclient.Close(); // stream.... 
             }
             catch (Exception ex)
             {

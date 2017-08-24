@@ -104,7 +104,7 @@ namespace Networking_server
         {
             clients.Remove(client);
             Deleteclient(client);
-            Console.WriteLine("Client X has left the building...");
+            //Console.WriteLine("Client X has left the building...");
             Broadcast(client, "Client X has left the building...", client.UserName);
         }
 

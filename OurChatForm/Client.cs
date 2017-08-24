@@ -28,11 +28,7 @@ namespace OurChatForm
 
         public void Start()
         {
-            //client = new TcpClient("192.168.25.126", 5000);
-            //client = new TcpClient("192.168.25.126", 5000);
             client = new TcpClient(IPAddress, 5000);
-            //client = new TcpClient("192.168.25.116", 5000);Veronica
-            //client = new TcpClient("192.168.25.126", 5000); //Niklas L
 
             Thread listenerThread = new Thread(Listen);
             listenerThread.Start();
@@ -49,7 +45,7 @@ namespace OurChatForm
         {
             string message = "";
 
-            while (true)
+            while (client.Connected)
             {
                 try
                 {
@@ -66,37 +62,7 @@ namespace OurChatForm
                         string[] users2 = new string[Form.listBoxUsers.Items.Count];
                         Form.listBoxUsers.Items.CopyTo(users2, 0);
 
-                        if (users.Length > Form.listBoxUsers.Items.Count)
-                        {
-                            // Då har en användare lagts till
-                            foreach (var user in users.Except(users2))
-                            {
-                                Form.listBoxChat.Items.Add($"User {user} left the chat");
-                            }
-
-                            //for (int i = 0; i < users.Length; i++)
-                            //{
-                            //    foreach (var user in Form.listBoxUsers.Items)
-                            //    {
-                            //        //Om User[i] inte finns i form.listboxUsers.Items sedan innan
-                            //        //Skriv till chatbox att usern lagts till
-                            //    }
-                            //}
-                        }
-                        else if (users.Length < Form.listBoxUsers.Items.Count)
-                        {
-                            ////Då har någon gått ur
-
-                            foreach (var result in users2.Except(users))
-                            {
-                                Form.listBoxChat.Items.Add($"User {result} left the chat");
-                            }
-                            //for (int i = 0; i < Form.listBoxUsers.Items.Count; i++)
-                            //    users2[i] = Form.listBoxUsers.Items[i].ToString();
-
-                            //var resultSet = users2
-                            //    .Except(users).ToArray();
-                        }
+                        WriteUserEvent(users, users2);
 
                         Form.listBoxUsers.Items.Clear();
                         foreach (var user in users)
@@ -118,24 +84,53 @@ namespace OurChatForm
                         {
                             Form.setTextBoxes(true);
                         }
-                        MessageBox.Show(deserialized.Content);
+                        if (client.Connected)
+                        {
+                            MessageBox.Show(deserialized.Content);
+                        }
                     }
-
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.PrivateMessage)
                     {
                         Form.listBoxChat.Items.Add($"{deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
+                    }
+
+                    else if (deserialized.MessageType == ClassLibrary.ProtocolType.DeleteClient)
+                    {
+                        break;
                     }
                 }
 
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    if (client.Connected)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                     break;
                 }
             }
         }
 
-        //För att skicka meddelande:
+        public void WriteUserEvent(string[] users, string [] users2)
+        {
+            if (users.Length > Form.listBoxUsers.Items.Count)
+            {
+                // Då har en användare lagts till
+                foreach (var user in users.Except(users2))
+                {
+                    Form.listBoxChat.Items.Add($"User {user} joined the chat");
+                }
+            }
+            else if (users.Length < Form.listBoxUsers.Items.Count)
+            {
+                //Då har någon gått ur
+                foreach (var result in users2.Except(users))
+                {
+                    Form.listBoxChat.Items.Add($"User {result} left the chat");
+                }
+            }
+        }
+
         public void Send(string message)
         {
             //string message = "";
@@ -159,6 +154,10 @@ namespace OurChatForm
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+        public void DisconnectMe()
+        {
+            client.Close();
         }
     }
 }

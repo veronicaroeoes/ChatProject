@@ -116,8 +116,8 @@ namespace OurChatForm
 
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
 
-
             MyClient.Send(jsonmessage);
+            MyClient.DisconnectMe();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -128,8 +128,9 @@ namespace OurChatForm
 
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
 
-
             MyClient.Send(jsonmessage);
+            MyClient.DisconnectMe();
+
         }
     }
 }
