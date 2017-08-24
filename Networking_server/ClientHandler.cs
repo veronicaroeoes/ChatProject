@@ -98,8 +98,8 @@ namespace Networking_server
                     }
                 }
 
-                myServer.DisconnectClient(this.UserName); // Path c
-                tcpclient.Close(); // stream.... 
+                myServer.DisconnectClient(this.UserName);
+                tcpclient.Close();
             }
             catch (Exception ex)
             {
