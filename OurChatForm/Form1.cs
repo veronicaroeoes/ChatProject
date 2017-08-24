@@ -68,21 +68,7 @@ namespace OurChatForm
 
         private void listBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (e.Index < 0) return;
-            ////if the item state is selected them change the back color 
-            //if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-            //    e = new DrawItemEventArgs(e.Graphics,
-            //                              e.Font,
-            //                              e.Bounds,
-            //                              e.Index,
-            //                              e.State ^ DrawItemState.Selected,
-            //                              e.ForeColor,
-            //                              Color.Yellow);//Choose the color
-
-            //// Draw the background of the ListBox control for each item.
-            //e.DrawBackground();
-            //// Draw the current item text
-            //e.Graphics.DrawString(listBox1.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
+            //this.listBoxUsers.Invalidate();
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
@@ -157,6 +143,39 @@ namespace OurChatForm
                 // SEND
                 buttonSend_Click(sender, e);
             }
+        }
+
+        private void listBoxUsers_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            //set the color values of your own color.
+            int alpha = 255, red = 237, green = 43, blue = 136;
+
+            //Set the color variable c to get your color values in ARGB blend mode.
+            Color c = new Color();
+            c = Color.FromArgb(alpha, red, green, blue);
+
+            int index = e.Index;
+            Graphics g = e.Graphics;
+
+            foreach (int selectedIndex in this.listBoxUsers.SelectedIndices)
+            {
+                if (index == selectedIndex)
+                {
+                    // Draw the new background colour
+                    e.DrawBackground();
+                    g.FillRectangle(new SolidBrush(c), e.Bounds);
+                }
+            }
+
+            // Get the item details
+            Font font = listBoxUsers.Font;
+            Color colour = listBoxUsers.ForeColor;
+            string text = listBoxUsers.Items[index].ToString();
+
+            // Print the text
+            g.DrawString(text, font, new SolidBrush(Color.White), (float)e.Bounds.X, (float)e.Bounds.Y);
+            e.DrawFocusRectangle();
+
         }
     }
 }

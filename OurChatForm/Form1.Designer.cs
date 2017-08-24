@@ -1,4 +1,6 @@
-﻿namespace OurChatForm
+﻿using System.Windows.Forms;
+
+namespace OurChatForm
 {
     partial class Form1
     {
@@ -121,12 +123,12 @@
             this.textBoxMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
             this.textBoxMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxMessage.Font = new System.Drawing.Font("Open Sans", 10.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textBoxMessage.ForeColor = System.Drawing.Color.Black;
             this.textBoxMessage.Location = new System.Drawing.Point(196, 466);
             this.textBoxMessage.Name = "textBoxMessage";
             this.textBoxMessage.Size = new System.Drawing.Size(805, 87);
             this.textBoxMessage.TabIndex = 6;
-            this.textBoxMessage.Text = "write message...";
+            this.textBoxMessage.Text = "";
             this.textBoxMessage.TextChanged += new System.EventHandler(this.textBoxMessage_TextChanged);
             this.textBoxMessage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxMessage_KeyUp);
             // 
@@ -134,6 +136,7 @@
             // 
             this.listBoxUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(104)))));
             this.listBoxUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxUsers.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.listBoxUsers.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxUsers.FormattingEnabled = true;
             this.listBoxUsers.ItemHeight = 23;
@@ -141,6 +144,7 @@
             this.listBoxUsers.Name = "listBoxUsers";
             this.listBoxUsers.Size = new System.Drawing.Size(133, 253);
             this.listBoxUsers.TabIndex = 7;
+            this.listBoxUsers.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxUsers_DrawItem);
             this.listBoxUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxUsers_SelectedIndexChanged);
             // 
             // labelFriendsOnline
