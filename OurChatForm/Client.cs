@@ -62,19 +62,56 @@ namespace OurChatForm
 
                     if (deserialized.MessageType == ClassLibrary.ProtocolType.ListUsers)
                     {
-                        string[] Users = deserialized.Content.Split(';');
+                        string[] users = deserialized.Content.Split(';');
+                        string[] users2 = new string[Form.listBoxUsers.Items.Count];
+                        Form.listBoxUsers.Items.CopyTo(users2, 0);
+
+                        if (users.Length > Form.listBoxUsers.Items.Count)
+                        {
+                            // Då har en användare lagts till
+                            foreach (var user in users.Except(users2))
+                            {
+                                Form.listBoxChat.Items.Add($"User {user} left the chat");
+                            }
+
+                            //for (int i = 0; i < users.Length; i++)
+                            //{
+                            //    foreach (var user in Form.listBoxUsers.Items)
+                            //    {
+                            //        //Om User[i] inte finns i form.listboxUsers.Items sedan innan
+                            //        //Skriv till chatbox att usern lagts till
+                            //    }
+                            //}
+                        }
+                        else if (users.Length < Form.listBoxUsers.Items.Count)
+                        {
+                            ////Då har någon gått ur
+
+                            foreach (var result in users2.Except(users))
+                            {
+                                Form.listBoxChat.Items.Add($"User {result} left the chat");
+                            }
+                            //for (int i = 0; i < Form.listBoxUsers.Items.Count; i++)
+                            //    users2[i] = Form.listBoxUsers.Items[i].ToString();
+
+                            //var resultSet = users2
+                            //    .Except(users).ToArray();
+                        }
+
                         Form.listBoxUsers.Items.Clear();
-                        foreach (var user in Users)
+                        foreach (var user in users)
                         {
                             Form.listBoxUsers.Items.Add(user);
                         }
+
                         Form.listBoxUsers.SelectedIndex = 0;
-                        
                     }
+
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.Message)
                     {
                         Form.listBoxChat.Items.Add($"{deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
                     }
+
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.ErrorMessage)
                     {
                         if (deserialized.ErrorType == ClassLibrary.ErrorType.UserNameTaken || deserialized.ErrorType == ClassLibrary.ErrorType.UserNameToShort)
@@ -83,17 +120,19 @@ namespace OurChatForm
                         }
                         MessageBox.Show(deserialized.Content);
                     }
+
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.PrivateMessage)
                     {
                         Form.listBoxChat.Items.Add($"{deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
                     }
                 }
+
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                    break;
                 }
             }
-
         }
 
         //För att skicka meddelande:
