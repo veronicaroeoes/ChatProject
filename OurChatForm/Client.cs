@@ -28,8 +28,6 @@ namespace OurChatForm
 
         public void Start()
         {
-            
-
             // Är IP-adressen valid? Om inte, backa!
             try
             {
@@ -37,12 +35,11 @@ namespace OurChatForm
                 Thread listenerThread = new Thread(Listen);
                 listenerThread.Start();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("IP-adress is invalid. Check it again by typing 'ipconfig' and hitting enter in the terminal.");
+                Form.setTextBoxes(false);
             }
-
-
         }
 
         public void Listen()
