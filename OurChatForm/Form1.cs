@@ -41,6 +41,7 @@ namespace OurChatForm
 
         private void buttonCreateUser_Click(object sender, EventArgs e)
         {
+
             if (MyClient == null)
             {
                 MyClient = new Client(textBoxUserName.Text, textboxIpadress.Text, this);
@@ -113,6 +114,9 @@ namespace OurChatForm
 
             //string myMessage = textBoxMessage.Text;
 
+            listBoxChat.Items.Add($"{textBoxUserName.Text} has left the chat");
+            listBoxUsers.Items.Remove(textBoxUserName.Text);
+
             ClassLibrary.Protocoll myProtocoll = new Protocoll();
             myProtocoll.MessageType = ProtocolType.DeleteClient;
             myProtocoll.Sender = textBoxUserName.Text;
@@ -121,6 +125,9 @@ namespace OurChatForm
 
             MyClient.Send(jsonmessage);
             MyClient.DisconnectMe();
+
+            setTextBoxes(true);
+            MyClient = null; 
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

@@ -36,7 +36,6 @@ namespace Networking_server
 
                     var deserialized = JsonConvert.DeserializeObject<Protocoll>(message);
 
-
                     ErrorType errorType = myServer.UserNameOk(deserialized.Sender);
 
                     if (errorType == ErrorType.NoError)
@@ -48,8 +47,8 @@ namespace Networking_server
                         //myServer.Broadcast(this, message, UserName);
 
                         break;
-
                     }
+
                     else
                     {
                         Protocoll errorProtocoll = new Protocoll();
@@ -83,7 +82,6 @@ namespace Networking_server
 
                     var deserialized = JsonConvert.DeserializeObject<Protocoll>(message);
 
-
                     if (deserialized.MessageType == ClassLibrary.ProtocolType.Message)
                     {
                         myServer.Broadcast(this, message, deserialized.Sender);
@@ -94,11 +92,13 @@ namespace Networking_server
                     }
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.DeleteClient)
                     {
+                        
+                        myServer.DisconnectClient(deserialized.Sender);
                         message = "quit";
                     }
                 }
 
-                myServer.DisconnectClient(this); // Path c
+                myServer.DisconnectClient(this.UserName); // Path c
                 tcpclient.Close(); // stream.... 
             }
             catch (Exception ex)
