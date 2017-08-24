@@ -28,17 +28,21 @@ namespace OurChatForm
 
         public void Start()
         {
-            client = new TcpClient(IPAddress, 5000);
+            
 
-            Thread listenerThread = new Thread(Listen);
-            listenerThread.Start();
+            // Är IP-adressen valid? Om inte, backa!
+            try
+            {
+                client = new TcpClient(IPAddress, 5000);
+                Thread listenerThread = new Thread(Listen);
+                listenerThread.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("IP-adress is invalid. Check it again by typing 'ipconfig' and hitting enter in the terminal.");
+            }
 
-            //Thread senderThread = new Thread(Send);
-            //senderThread.Start();
 
-            //senderThread.Join();
-
-            //listenerThread.Join();
         }
 
         public void Listen()
@@ -112,7 +116,7 @@ namespace OurChatForm
             }
         }
 
-        public void WriteUserEvent(string[] users, string [] users2)
+        public void WriteUserEvent(string[] users, string[] users2)
         {
             if (users.Length > Form.listBoxUsers.Items.Count)
             {
