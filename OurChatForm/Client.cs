@@ -63,37 +63,39 @@ namespace OurChatForm
                     if (deserialized.MessageType == ClassLibrary.ProtocolType.ListUsers)
                     {
                         string[] users = deserialized.Content.Split(';');
+                        string[] users2 = new string[Form.listBoxUsers.Items.Count];
+                        Form.listBoxUsers.Items.CopyTo(users2, 0);
 
                         if (users.Length > Form.listBoxUsers.Items.Count)
                         {
                             // Då har en användare lagts till
-
-                            for (int i = 0; i < users.Length; i++)
+                            foreach (var user in users.Except(users2))
                             {
-                                foreach (var user in Form.listBoxUsers.Items)
-                                {
-                                    //Om User[i] inte finns i form.listboxUsers.Items sedan innan
-                                    //Skriv till chatbox att usern lagts till
-                                }
+                                Form.listBoxChat.Items.Add($"User {user} left the chat");
                             }
+
+                            //for (int i = 0; i < users.Length; i++)
+                            //{
+                            //    foreach (var user in Form.listBoxUsers.Items)
+                            //    {
+                            //        //Om User[i] inte finns i form.listboxUsers.Items sedan innan
+                            //        //Skriv till chatbox att usern lagts till
+                            //    }
+                            //}
                         }
                         else if (users.Length < Form.listBoxUsers.Items.Count)
                         {
                             ////Då har någon gått ur
-                            string[] users2 = new string[Form.listBoxUsers.Items.Count];
-
-                            Form.listBoxUsers.Items.CopyTo(users2, 0);
-
-                            //for (int i = 0; i < Form.listBoxUsers.Items.Count; i++)
-                            //    users2[i] = Form.listBoxUsers.Items[i].ToString();
-
-                            //var resultSet = users2
-                            //    .Except(users).ToArray();
 
                             foreach (var result in users2.Except(users))
                             {
                                 Form.listBoxChat.Items.Add($"User {result} left the chat");
                             }
+                            //for (int i = 0; i < Form.listBoxUsers.Items.Count; i++)
+                            //    users2[i] = Form.listBoxUsers.Items[i].ToString();
+
+                            //var resultSet = users2
+                            //    .Except(users).ToArray();
                         }
 
                         Form.listBoxUsers.Items.Clear();
