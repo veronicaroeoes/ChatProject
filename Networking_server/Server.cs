@@ -32,7 +32,7 @@ namespace Networking_server
                     ClientHandler newClient = new ClientHandler(c, this, "test");
                     //clients.Add(newClient);
                     Console.WriteLine("New connection");
-                    
+
                     Thread clientThread = new Thread(newClient.Run);
                     clientThread.Start();
                 }
@@ -68,13 +68,10 @@ namespace Networking_server
 
             Broadcast(clientHandler, jsonmessage, clientHandler.UserName);
 
-            
-
         }
 
         internal ErrorType UserNameOk(string sender)
         {
-
             if (sender == "Public" && clients.FindAll(x => x.UserName == sender).Count == 0)
             {
                 return ErrorType.UserNameTaken;
@@ -90,7 +87,7 @@ namespace Networking_server
 
         public void Broadcast(ClientHandler client, string jsonmessage, string user)
         {
-            
+
             foreach (ClientHandler tmpClient in clients)
             {
                 NetworkStream n = tmpClient.tcpclient.GetStream();
@@ -101,14 +98,17 @@ namespace Networking_server
             }
         }
 
-        public void DisconnectClient(ClientHandler client)
+        public void DisconnectClient(string userName)
         {
-            clients.Remove(client);
-            Deleteclient(client);
-            Console.WriteLine($"Client {client.UserName} has left the building...");
+            var result = clients
+                .FirstOrDefault(c => (c.UserName == userName));
+
+            clients.Remove(result);
+            DeleteClient(result);
+            Console.WriteLine($"Client {result.UserName} has left the building...");
         }
 
-        private void Deleteclient(ClientHandler client)
+        private void DeleteClient(ClientHandler client)
         {
             //clients.Add(clientHandler);
             var result = clients

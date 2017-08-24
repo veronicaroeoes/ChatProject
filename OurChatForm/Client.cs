@@ -89,6 +89,7 @@ namespace OurChatForm
                             MessageBox.Show(deserialized.Content);
                         }
                     }
+
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.PrivateMessage)
                     {
                         Form.listBoxChat.Items.Add($"{deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
