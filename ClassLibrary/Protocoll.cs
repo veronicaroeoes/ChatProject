@@ -31,5 +31,6 @@ namespace ClassLibrary
         public string Version { get; set; } = "1.0";
         public string Sender { get; set; }
         public string Receiver { get; set; }
+        public DateTime DateTime { get; set; }
     }
 }

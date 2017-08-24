@@ -75,7 +75,7 @@ namespace OurChatForm
 
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.Message)
                     {
-                        Form.listBoxChat.Items.Add($"{deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
+                        Form.listBoxChat.Items.Add($"{deserialized.DateTime}: {deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
                     }
 
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.ErrorMessage)
@@ -92,7 +92,7 @@ namespace OurChatForm
 
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.PrivateMessage)
                     {
-                        Form.listBoxChat.Items.Add($"{deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
+                        Form.listBoxChat.Items.Add($"{deserialized.DateTime}: {deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
                     }
 
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.DeleteClient)
@@ -119,7 +119,7 @@ namespace OurChatForm
                 // Då har en användare lagts till
                 foreach (var user in users.Except(users2))
                 {
-                    Form.listBoxChat.Items.Add($"User {user} joined the chat");
+                    Form.listBoxChat.Items.Add($"{DateTime.Now}: User {user} joined the chat");
                 }
             }
             else if (users.Length < Form.listBoxUsers.Items.Count)
@@ -127,7 +127,7 @@ namespace OurChatForm
                 //Då har någon gått ur
                 foreach (var result in users2.Except(users))
                 {
-                    Form.listBoxChat.Items.Add($"User {result} left the chat");
+                    Form.listBoxChat.Items.Add($"{DateTime.Now}: User {result} left the chat");
                 }
             }
         }

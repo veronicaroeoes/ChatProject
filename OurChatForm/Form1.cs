@@ -54,6 +54,7 @@ namespace OurChatForm
             ClassLibrary.Protocoll myProtocoll = new Protocoll();
             myProtocoll.MessageType = ProtocolType.UserName;
             myProtocoll.Sender = usertemp;
+            myProtocoll.DateTime = DateTime.Now;
 
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
 
@@ -92,7 +93,8 @@ namespace OurChatForm
             myProtocoll.Receiver = receiver;
             myProtocoll.Content = myMessage;
             myProtocoll.Sender = textBoxUserName.Text;
-
+            myProtocoll.DateTime = DateTime.Now;
+            
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
 
 
@@ -114,13 +116,14 @@ namespace OurChatForm
 
             //string myMessage = textBoxMessage.Text;
 
-            listBoxChat.Items.Add($"{textBoxUserName.Text} has left the chat");
+            listBoxChat.Items.Add($"{DateTime.Now}: User {textBoxUserName.Text} left the chat");
             listBoxUsers.Items.Remove(textBoxUserName.Text);
 
             ClassLibrary.Protocoll myProtocoll = new Protocoll();
             myProtocoll.MessageType = ProtocolType.DeleteClient;
             myProtocoll.Sender = textBoxUserName.Text;
-
+            myProtocoll.DateTime = DateTime.Now;
+            
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
 
             MyClient.Send(jsonmessage);
@@ -135,7 +138,8 @@ namespace OurChatForm
             ClassLibrary.Protocoll myProtocoll = new Protocoll();
             myProtocoll.MessageType = ProtocolType.DeleteClient;
             myProtocoll.Sender = textBoxUserName.Text;
-
+            myProtocoll.DateTime = DateTime.Now;
+            
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
 
             MyClient.Send(jsonmessage);

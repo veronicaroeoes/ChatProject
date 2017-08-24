@@ -54,6 +54,8 @@ namespace Networking_server
                         Protocoll errorProtocoll = new Protocoll();
                         errorProtocoll.MessageType = ClassLibrary.ProtocolType.ErrorMessage;
                         errorProtocoll.ErrorType = errorType;
+                        errorProtocoll.DateTime = DateTime.Now;
+
 
                         switch (errorType)
                         {
