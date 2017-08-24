@@ -28,17 +28,18 @@ namespace OurChatForm
 
         public void Start()
         {
-            client = new TcpClient(IPAddress, 5000);
-
-            Thread listenerThread = new Thread(Listen);
-            listenerThread.Start();
-
-            //Thread senderThread = new Thread(Send);
-            //senderThread.Start();
-
-            //senderThread.Join();
-
-            //listenerThread.Join();
+            // Är IP-adressen valid? Om inte, backa!
+            try
+            {
+                client = new TcpClient(IPAddress, 5000);
+                Thread listenerThread = new Thread(Listen);
+                listenerThread.Start();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("IP-adress is invalid. Check it again by typing 'ipconfig' and hitting enter in the terminal.");
+                Form.setTextBoxes(false);
+            }
         }
 
         public void Listen()
@@ -70,16 +71,14 @@ namespace OurChatForm
                             Form.listBoxUsers.Items.Add(user);
                         }
 
-                        Form.listBoxUsers.SelectedIndex = 0;
+                        //Form.listBoxUsers.SelectedIndex = 0;
                     }
 
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.Message)
                     {
-                        // public int Add(object item);
-                        Func<object, int> a = Form.listBoxChat.Items.Add;
-                        //Form.Invoke(a, $"{deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
-                        Form.AddChatMessage($"{deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
-                        //Form.listBoxChat.Items.Add($"{deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
+                        Form.listBoxChat.Items.Add($"{deserialized.DateTime.ToString("HH:mm")} {deserialized.Sender} to {deserialized.Receiver}:");
+                        Form.listBoxChat.Items.Add($"{deserialized.Content}");
+
                     }
 
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.ErrorMessage)
@@ -96,9 +95,9 @@ namespace OurChatForm
 
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.PrivateMessage)
                     {
-                        Func<object, int> a = Form.listBoxChat.Items.Add;
-                        Form.Invoke(a, $"{deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
-                        //Form.listBoxChat.Items.Add($"{deserialized.Sender} to {deserialized.Receiver}: {deserialized.Content}");
+                        Form.listBoxChat.Items.Add($"{deserialized.DateTime.ToString("HH:mm")} {deserialized.Sender} to {deserialized.Receiver}:");
+                        Form.listBoxChat.Items.Add($"{deserialized.Content}");
+
                     }
 
                     else if (deserialized.MessageType == ClassLibrary.ProtocolType.DeleteClient)
@@ -125,9 +124,8 @@ namespace OurChatForm
                 // Då har en användare lagts till
                 foreach (var user in users.Except(users2))
                 {
-                    Func<object, int> a = Form.listBoxChat.Items.Add;
-                    Form.Invoke(a, $"User {user} joined the chat");
-                    //Form.listBoxChat.Items.Add($"User {user} joined the chat");
+                    Form.listBoxChat.Items.Add($"{DateTime.Now.ToString("HH:mm")}");
+                    Form.listBoxChat.Items.Add($"User {user} joined the chat");
                 }
             }
             else if (users.Length < Form.listBoxUsers.Items.Count)
@@ -135,10 +133,8 @@ namespace OurChatForm
                 //Då har någon gått ur
                 foreach (var result in users2.Except(users))
                 {
-                    Func<object, int> a = Form.listBoxChat.Items.Add;
-                    //Form.Invoke(a, $"User {result} left the chat");
-                    Form.AddChatMessage($"User {result} left the chat");
-                    //Form.listBoxChat.Items.Add($"User {result} left the chat");
+                    Form.listBoxChat.Items.Add($"{DateTime.Now.ToString("HH:mm")}");
+                    Form.listBoxChat.Items.Add($"User {result} left the chat");
                 }
             }
         }

@@ -41,10 +41,11 @@ namespace OurChatForm
 
         private void buttonCreateUser_Click(object sender, EventArgs e)
         {
+
             if (MyClient == null)
             {
-
                 MyClient = new Client(textBoxUserName.Text, textboxIpadress.Text, this);
+
                 MyClient.Start();
             }
 
@@ -91,12 +92,20 @@ namespace OurChatForm
                     myProtocoll.MessageType = ProtocolType.PrivateMessage;
                 }
 
+<<<<<<< HEAD
             myProtocoll.Receiver = receiver;
             myProtocoll.Content = myMessage;
             myProtocoll.Sender = textBoxUserName.Text;
             myProtocoll.DateTime = DateTime.Now;
             
             string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
+=======
+                myProtocoll.Receiver = receiver;
+                myProtocoll.Content = myMessage;
+                myProtocoll.Sender = textBoxUserName.Text;
+
+                string jsonmessage = JsonConvert.SerializeObject(myProtocoll);
+>>>>>>> 5dc6b040046f9f53f3cb174d3e025f70aead48b7
 
 
                 MyClient.Send(jsonmessage);
@@ -120,8 +129,7 @@ namespace OurChatForm
 
             //string myMessage = textBoxMessage.Text;
 
-            listBoxChat.Items.Add($"{DateTime.Now.ToString("HH: mm")}");
-            listBoxChat.Items.Add($"User {textBoxUserName.Text} left the chat");
+            listBoxChat.Items.Add($"{DateTime.Now}: User {textBoxUserName.Text} left the chat");
             listBoxUsers.Items.Remove(textBoxUserName.Text);
 
             ClassLibrary.Protocoll myProtocoll = new Protocoll();
@@ -157,7 +165,6 @@ namespace OurChatForm
             // ????????????????????????????????????????????????????????????????????????????????????
 
         }
-
 
         private void textBoxMessage_KeyUp(object sender, KeyEventArgs e)
         {
