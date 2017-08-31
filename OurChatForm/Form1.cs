@@ -171,7 +171,7 @@ namespace OurChatForm
         private void listBoxUsers_DrawItem(object sender, DrawItemEventArgs e)
         {
             //set the color values of your own color.
-            int alpha = 255, red = 237, green = 43, blue = 136;
+            int alpha = 255, red = 241, green = 110, blue = 158;
 
             //Set the color variable c to get your color values in ARGB blend mode.
             Color c = new Color();

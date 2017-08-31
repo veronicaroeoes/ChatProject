@@ -64,7 +64,7 @@ namespace OurChatForm
             this.textBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUserName.Location = new System.Drawing.Point(37, 147);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(133, 20);
+            this.textBoxUserName.Size = new System.Drawing.Size(161, 20);
             this.textBoxUserName.TabIndex = 1;
             this.textBoxUserName.TextChanged += new System.EventHandler(this.textBoxUserName_TextChanged);
             // 
@@ -75,7 +75,7 @@ namespace OurChatForm
             this.textboxIpadress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textboxIpadress.Location = new System.Drawing.Point(37, 196);
             this.textboxIpadress.Name = "textboxIpadress";
-            this.textboxIpadress.Size = new System.Drawing.Size(133, 20);
+            this.textboxIpadress.Size = new System.Drawing.Size(161, 20);
             this.textboxIpadress.TabIndex = 3;
             // 
             // labelIPAddress
@@ -97,12 +97,11 @@ namespace OurChatForm
             this.listBoxChat.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxChat.FormattingEnabled = true;
             this.listBoxChat.ItemHeight = 23;
-            this.listBoxChat.Location = new System.Drawing.Point(196, 121);
+            this.listBoxChat.Location = new System.Drawing.Point(220, 121);
             this.listBoxChat.Name = "listBoxChat";
             this.listBoxChat.ScrollAlwaysVisible = true;
-            this.listBoxChat.Size = new System.Drawing.Size(805, 437);
+            this.listBoxChat.Size = new System.Drawing.Size(781, 437);
             this.listBoxChat.TabIndex = 4;
-            this.listBoxChat.SelectedIndexChanged += new System.EventHandler(this.listBoxChat_SelectedIndexChanged);
             // 
             // buttonSend
             // 
@@ -111,7 +110,7 @@ namespace OurChatForm
             this.buttonSend.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSend.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSend.ForeColor = System.Drawing.Color.White;
-            this.buttonSend.Location = new System.Drawing.Point(868, 562);
+            this.buttonSend.Location = new System.Drawing.Point(868, 677);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(133, 32);
             this.buttonSend.TabIndex = 5;
@@ -126,9 +125,9 @@ namespace OurChatForm
             this.textBoxMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxMessage.Font = new System.Drawing.Font("Open Sans", 10.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMessage.ForeColor = System.Drawing.Color.Black;
-            this.textBoxMessage.Location = new System.Drawing.Point(196, 610);
+            this.textBoxMessage.Location = new System.Drawing.Point(220, 582);
             this.textBoxMessage.Name = "textBoxMessage";
-            this.textBoxMessage.Size = new System.Drawing.Size(805, 87);
+            this.textBoxMessage.Size = new System.Drawing.Size(781, 87);
             this.textBoxMessage.TabIndex = 6;
             this.textBoxMessage.Text = "";
             this.textBoxMessage.TextChanged += new System.EventHandler(this.textBoxMessage_TextChanged);
@@ -144,7 +143,7 @@ namespace OurChatForm
             this.listBoxUsers.ItemHeight = 23;
             this.listBoxUsers.Location = new System.Drawing.Point(37, 301);
             this.listBoxUsers.Name = "listBoxUsers";
-            this.listBoxUsers.Size = new System.Drawing.Size(133, 253);
+            this.listBoxUsers.Size = new System.Drawing.Size(161, 368);
             this.listBoxUsers.TabIndex = 7;
             this.listBoxUsers.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxUsers_DrawItem);
             this.listBoxUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxUsers_SelectedIndexChanged);
@@ -168,7 +167,7 @@ namespace OurChatForm
             this.buttonCreateUser.ForeColor = System.Drawing.Color.White;
             this.buttonCreateUser.Location = new System.Drawing.Point(37, 232);
             this.buttonCreateUser.Name = "buttonCreateUser";
-            this.buttonCreateUser.Size = new System.Drawing.Size(133, 31);
+            this.buttonCreateUser.Size = new System.Drawing.Size(161, 31);
             this.buttonCreateUser.TabIndex = 9;
             this.buttonCreateUser.Text = "Go!";
             this.buttonCreateUser.UseVisualStyleBackColor = false;
@@ -202,7 +201,7 @@ namespace OurChatForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(177)))), ((int)(((byte)(75)))));
-            this.ClientSize = new System.Drawing.Size(1034, 709);
+            this.ClientSize = new System.Drawing.Size(1034, 726);
             this.Controls.Add(this.buttonDisconnectUser);
             this.Controls.Add(this.buttonCreateUser);
             this.Controls.Add(this.labelFriendsOnline);
